@@ -1,6 +1,8 @@
 <?php
 include('dbconnect.php');
 include('indexnav.php');
+
+session_start();
 ?>
 
 <!doctype html>

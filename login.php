@@ -1,6 +1,7 @@
 <?php
 include('dbconnect.php');
 include('indexnav.php');
+session_start();
 ?>
 
 <!doctype html>
@@ -29,12 +30,12 @@ include('indexnav.php');
     </head>
 
     <body>
-        <div class="container">
+        <div class="container pt-lg-5">
             <div class="row pt-5 justify-content-center">
                 <div class="col-md-5 pt-5">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST">
+                            <form action="creds.php" method="POST">
                                 <center><img src="misc/logo.png"></center>
                                 <div class="form-group text-center mt-3">
                                     <select name="role" class="form-control">
@@ -55,7 +56,7 @@ include('indexnav.php');
                                     <span>New Here ? Create Account |</span>
                                     <a href="signup.php"> Sign Up</a>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
