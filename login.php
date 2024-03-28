@@ -46,6 +46,8 @@ session_start();
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>';
+                                session_unset();
+                                session_destroy();
                             }
                             if (isset($_GET['mssg'])) {
                                 echo
@@ -55,6 +57,8 @@ session_start();
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>';
+                                session_unset();
+                                session_destroy();
                             }
                             ?>
                             <div class="form-group mt-1">
@@ -65,8 +69,8 @@ session_start();
                                 <label for="password">Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
                             </div>
-                            <div class="form-group">
-                                <span>New Here ? Create Account |</span>
+                            <div class="form-group text-center pt-2">
+                                <span>New Here? Create Account |</span>
                                 <a href="signup.php"> Sign Up</a>
                             </div>
                             <button type="submit" name="submit" value="submit" class="btn btn-primary">Log In</button>

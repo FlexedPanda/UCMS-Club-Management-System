@@ -36,6 +36,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
         }
     }
     header('Location: login.php?error=Invalid Email or Password');
+    session_destroy();
     exit();
 }
 ?>

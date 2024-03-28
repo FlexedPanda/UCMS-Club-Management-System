@@ -40,13 +40,15 @@ session_start();
               <center><img src="misc/logo.png"></center>
               <?php
               if (isset($_GET['error'])) {
-                  echo
-                  '<div class="alert alert-danger text-center pl-4 alert-dismissible fade show" role="alert">'
-                      . $_GET["error"] .
-                      '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                echo
+                '<div class="alert alert-danger text-center pl-4 alert-dismissible fade show" role="alert">'
+                  . $_GET["error"] .
+                  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                           </button>
                       </div>';
+                session_unset();
+                session_destroy();
               }
               ?>
               <div class="form-group row mt-2">
@@ -159,6 +161,10 @@ session_start();
                 <div class="col-sm-9">
                   <input type="password" name="confirm" class="form-control" id="inputConfirm" placeholder="Confirm Password" required>
                 </div>
+              </div>
+              <div class="form-group text-center pt-2">
+                <span>Existing Member? LogIn Instead |</span>
+                <a href="login.php">Log In</a>
               </div>
               <div class="form-group row">
                 <div class="col-sm-10">

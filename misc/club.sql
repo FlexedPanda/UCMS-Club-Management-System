@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2024 at 10:19 PM
+-- Generation Time: Mar 29, 2024 at 12:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -149,8 +149,16 @@ INSERT INTO `club` (`Name`, `President`, `Advisor`, `President_ID`, `Advisor_ID`
 
 CREATE TABLE `contact` (
   `Sponsor` varchar(255) NOT NULL,
-  `Member_ID` int(11) NOT NULL
+  `Panel_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`Sponsor`, `Panel_ID`) VALUES
+('Standard Bank Ltd.', 1001),
+('Standard Bank Ltd.', 1006);
 
 -- --------------------------------------------------------
 
@@ -505,6 +513,15 @@ CREATE TABLE `tsponsor_contact` (
   `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tsponsor_contact`
+--
+
+INSERT INTO `tsponsor_contact` (`Sponsor`, `Contact`) VALUES
+('Standard Bank Ltd.', '40101'),
+('Standard Bank Ltd.', '40102'),
+('Standard Bank Ltd.', '40103');
+
 -- --------------------------------------------------------
 
 --
@@ -557,6 +574,13 @@ CREATE TABLE `unverified_sponsor` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `unverified_sponsor`
+--
+
+INSERT INTO `unverified_sponsor` (`Name`, `Agent`, `Email`, `Password`) VALUES
+('Standard Bank Ltd.', 'Anupam Roy', 'standardbank@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -621,8 +645,8 @@ ALTER TABLE `club`
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`Sponsor`,`Member_ID`),
-  ADD KEY `contact_ibfk_1` (`Member_ID`);
+  ADD PRIMARY KEY (`Sponsor`,`Panel_ID`),
+  ADD KEY `contact_ibfk_1` (`Panel_ID`);
 
 --
 -- Indexes for table `department`
@@ -801,7 +825,7 @@ ALTER TABLE `club`
 -- Constraints for table `contact`
 --
 ALTER TABLE `contact`
-  ADD CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `registered_member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`Panel_ID`) REFERENCES `registered_member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`Sponsor`) REFERENCES `unverified_sponsor` (`Name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
