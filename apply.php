@@ -1,6 +1,6 @@
 <?php
 include('dbconnect.php');
-include('indexnav.php');
+include('navbarH.php');
 ?>
 
 <!doctype html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 03:55 PM
+-- Generation Time: Mar 28, 2024 at 10:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,8 +58,32 @@ INSERT INTO `advisor` (`Advisor_ID`, `Name`, `Designation`, `Email`, `Password`)
 
 CREATE TABLE `advisor_contact` (
   `Advisor_ID` int(11) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `advisor_contact`
+--
+
+INSERT INTO `advisor_contact` (`Advisor_ID`, `Contact`) VALUES
+(2001, '20011'),
+(2001, '20012'),
+(2002, '20021'),
+(2002, '20022'),
+(2003, '20031'),
+(2003, '20032'),
+(2004, '20041'),
+(2004, '20042'),
+(2005, '20051'),
+(2005, '20052'),
+(2006, '20061'),
+(2006, '20062'),
+(2007, '20071'),
+(2007, '20072'),
+(2008, '20081'),
+(2008, '20082'),
+(2009, '20091'),
+(2009, '20092');
 
 -- --------------------------------------------------------
 
@@ -69,18 +93,27 @@ CREATE TABLE `advisor_contact` (
 
 CREATE TABLE `approved_event` (
   `Event_ID` int(11) NOT NULL,
-  `Advisor_ID` int(11) DEFAULT NULL,
   `Club` varchar(255) DEFAULT NULL,
   `Name` varchar(255) NOT NULL,
   `Date` date DEFAULT NULL,
   `Venue` varchar(255) DEFAULT NULL,
   `Entry_Fee` int(11) DEFAULT NULL,
+  `Advisor_ID` int(11) DEFAULT NULL,
   `Capacity` int(11) DEFAULT NULL,
   `Event_Cost` int(11) DEFAULT NULL,
   `Participants` int(11) DEFAULT NULL,
   `Fundings` int(11) DEFAULT NULL,
   `Earnings` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `approved_event`
+--
+
+INSERT INTO `approved_event` (`Event_ID`, `Club`, `Name`, `Date`, `Venue`, `Entry_Fee`, `Advisor_ID`, `Capacity`, `Event_Cost`, `Participants`, `Fundings`, `Earnings`) VALUES
+(4001, 'BIZ BEE', 'Talent BEE Hunt', '2024-03-20', 'Auditorium, Ground Floor', 10, 2006, 100, 10000, 0, 0, 0),
+(4002, 'ROBU', 'Soccer Bot Competition', '2024-03-21', 'Free Space, 6th Floor', 10, 2002, 100, 1000, 0, 0, 0),
+(4003, 'BUCC', 'Cyber Security Session', '2024-03-22', 'Auditorium, 10th Floor', 10, 2001, 100, 10000, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -128,6 +161,7 @@ CREATE TABLE `contact` (
 CREATE TABLE `department` (
   `Name` varchar(255) NOT NULL,
   `Head` varchar(255) DEFAULT NULL,
+  `Designation` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Established` date DEFAULT NULL
@@ -137,16 +171,16 @@ CREATE TABLE `department` (
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`Name`, `Head`, `Email`, `Password`, `Established`) VALUES
-('ARCH', 'Zainab Faruqui Ali', 'arch@gmail.com', '1234', '2002-06-16'),
-('BBA', 'Mohammad Mujibul Haque', 'bba@gmail.com', '1234', '2002-08-18'),
-('CSE', 'Sadia Hamid Kazi', 'cse@gmail.com', '1234', '2002-01-11'),
-('EEE', 'Md. Mosaddequr Rahman', 'eee@gmail.com', '1234', '2002-02-12'),
-('ENH', 'Firdous Azim', 'enh@gmail.com', '1234', '2002-04-14'),
-('ESS', 'Wasiqur Rahman Khan', 'ess@gmail.com', '1234', '2002-05-15'),
-('LAW', 'K. Shamsuddin Mahmood', 'law@gmail.com', '1234', '2002-09-19'),
-('MNS', 'A F M Yusuf Haider', 'mns@gmail.com', '1234', '2002-03-13'),
-('PHRM', 'Hasina Yasmin', 'phrm@gmail.com', '1234', '2002-07-17');
+INSERT INTO `department` (`Name`, `Head`, `Designation`, `Email`, `Password`, `Established`) VALUES
+('ARCH', 'Zainab Faruqui Ali', 'Chairperson', 'arch@gmail.com', '1234', '2002-06-16'),
+('BBA', 'Mohammad Mujibul Haque', 'Chairperson', 'bba@gmail.com', '1234', '2002-08-18'),
+('CSE', 'Sadia Hamid Kazi', 'Chairperson', 'cse@gmail.com', '1234', '2002-01-11'),
+('EEE', 'Md. Mosaddequr Rahman', 'Chairperson', 'eee@gmail.com', '1234', '2002-02-12'),
+('ENH', 'Firdous Azim', 'Chairperson', 'enh@gmail.com', '1234', '2002-04-14'),
+('ESS', 'Wasiqur Rahman Khan', 'Chairperson', 'ess@gmail.com', '1234', '2002-05-15'),
+('LAW', 'K. Shamsuddin Mahmood', 'Chairperson', 'law@gmail.com', '1234', '2002-09-19'),
+('MNS', 'A F M Yusuf Haider', 'Chairperson', 'mns@gmail.com', '1234', '2002-03-13'),
+('PHRM', 'Hasina Yasmin', 'Chairperson', 'phrm@gmail.com', '1234', '2002-07-17');
 
 -- --------------------------------------------------------
 
@@ -192,8 +226,44 @@ CREATE TABLE `manage` (
 
 CREATE TABLE `member_contact` (
   `Member_ID` int(11) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_contact`
+--
+
+INSERT INTO `member_contact` (`Member_ID`, `Contact`) VALUES
+(1001, '10011'),
+(1001, '10012'),
+(1002, '10021'),
+(1002, '10022'),
+(1003, '10031'),
+(1003, '10032'),
+(1004, '10041'),
+(1004, '10042'),
+(1005, '10051'),
+(1005, '10052'),
+(1006, '10061'),
+(1006, '10062'),
+(1007, '10071'),
+(1007, '10072'),
+(1008, '10081'),
+(1008, '10082'),
+(1009, '10091'),
+(1009, '10092'),
+(1010, '10101'),
+(1010, '10102'),
+(1036, '10361'),
+(1036, '10362'),
+(1037, '10371'),
+(1037, '10372'),
+(1038, '10381'),
+(1038, '10382'),
+(1039, '10391'),
+(1039, '10392'),
+(1040, '10401'),
+(1040, '10402');
 
 -- --------------------------------------------------------
 
@@ -205,6 +275,14 @@ CREATE TABLE `moderate` (
   `Member_ID` int(11) NOT NULL,
   `Panel_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `moderate`
+--
+
+INSERT INTO `moderate` (`Member_ID`, `Panel_ID`) VALUES
+(1036, 1001),
+(1036, 1006);
 
 -- --------------------------------------------------------
 
@@ -240,8 +318,24 @@ INSERT INTO `oca` (`OCA_ID`, `Name`, `Designation`, `Fund_Balance`, `Email`, `Pa
 
 CREATE TABLE `oca_contact` (
   `OCA_ID` int(11) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `oca_contact`
+--
+
+INSERT INTO `oca_contact` (`OCA_ID`, `Contact`) VALUES
+(3001, '30011'),
+(3001, '30012'),
+(3002, '30021'),
+(3002, '30022'),
+(3003, '30031'),
+(3003, '30032'),
+(3004, '30041'),
+(3004, '30042'),
+(3005, '30051'),
+(3005, '30052');
 
 -- --------------------------------------------------------
 
@@ -292,16 +386,21 @@ CREATE TABLE `registered_member` (
 --
 
 INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_date`, `Department`, `Admitted`, `Credits`, `Club`, `Joined_Date`, `Designation`, `Email`, `Password`) VALUES
-(1001, 'Musarrat Tasnim', 'Female', '2001-12-16', 'CSE', 'Spring 2022', 66, 'BUCC', '0000-00-00', 'President', 'musarrat.tasnim@gmail.com', '1234'),
-(1002, 'Afif Rayhan', 'Male', '2000-06-09', 'CSE', 'Summer 2021', 78, 'BUEDF', '0000-00-00', 'President', 'afif.rayhan@gmail.com', '1234'),
-(1003, 'Raheek Raiyan', 'Male', '2001-07-18', 'CSE', 'Fall 2021', 78, 'BUAC', '0000-00-00', 'President', 'raheek.raiyan@gmail.com', '1234'),
-(1004, 'Yeamin Adnan', 'Male', '2002-09-07', 'CSE', 'Fall 2021', 78, 'BIZ BEE', '0000-00-00', 'President', 'yeamin.adnan@gmail.com', '1234'),
-(1005, 'Nusaiba Alam', 'Female', '2000-06-22', 'CSE', 'Summer 2021', 96, 'ROBU', '0000-00-00', 'President', 'nusaiba.alam@gmail.com', '1234'),
-(1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'BBA', 'Spring 2021', 96, 'BUCC', '0000-00-00', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
-(1037, 'Nafis Siddik', 'Male', '2001-02-25', 'EEE', 'Summer 2021', 84, 'BUEDF', '0000-00-00', 'Member', 'nafis.siddik@gmail.com', '1234'),
-(1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'BUAC', '0000-00-00', 'Member', 'humaira.rashmin@gmail.com', '1234'),
-(1039, 'Maisha Fairooz', 'Female', '2002-09-17', 'LAW', 'Spring 2022', 60, 'BIZ BEE', '0000-00-00', 'Member', 'maisha.fairooz@gmail.com', '1234'),
-(1040, 'Nihalul Kabir', 'Male', '2000-05-28', 'MNS', 'Summer 2022', 48, 'ROBU', '0000-00-00', 'Member', 'nihalul.kabir@gmail.com', '1234');
+(1001, 'Musarrat Tasnim', 'Female', '2001-12-16', 'CSE', 'Spring 2022', 66, 'BUCC', '2024-03-01', 'President', 'musarrat.tasnim@gmail.com', '1234'),
+(1002, 'Afif Rayhan', 'Male', '2000-06-09', 'CSE', 'Summer 2021', 78, 'BUEDF', '2024-03-01', 'President', 'afif.rayhan@gmail.com', '1234'),
+(1003, 'Raheek Raiyan', 'Male', '2001-07-18', 'CSE', 'Fall 2021', 78, 'BUAC', '2024-03-01', 'President', 'raheek.raiyan@gmail.com', '1234'),
+(1004, 'Yeamin Adnan', 'Male', '2002-09-07', 'CSE', 'Fall 2021', 78, 'BIZ BEE', '2024-03-01', 'President', 'yeamin.adnan@gmail.com', '1234'),
+(1005, 'Nusaiba Alam', 'Female', '2000-06-22', 'CSE', 'Summer 2021', 96, 'ROBU', '2024-03-01', 'President', 'nusaiba.alam@gmail.com', '1234'),
+(1006, 'Hasan Mahmud', 'Male', '2000-04-23', 'PHRM', 'Summer 2021', 84, 'BUCC', '2024-03-02', 'Vice President', 'hasan.mahmud@gmail.com', '1234'),
+(1007, 'Kabir Chowdhury', 'Male', '2000-08-17', 'EEE', 'Fall 2021', 72, 'BUAC', '2024-03-02', 'Vice President', 'kabir.chowdhury@gmail.com', '1234'),
+(1008, 'Nabil Ahmed', 'Male', '2001-09-28', 'LAW', 'Spring 2021', 96, 'BIZ BEE', '2024-03-02', 'Vice President', 'nabil.ahmed@gmail.com', '1234'),
+(1009, 'Mubtasim Fuad', 'Male', '2002-01-23', 'ENH', 'Spring 2022', 60, 'BUEDF', '2024-03-02', 'Vice President', 'mubtasim.fuad@gmail.com', '1234'),
+(1010, 'Towfiq Mahmud', 'Male', '2000-08-22', 'ARCH', 'Spring 2021', 96, 'ROBU', '2024-03-02', 'Vice President', 'towfiq.mahmud@gmail.com', '1234'),
+(1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'BBA', 'Spring 2021', 96, 'BUCC', '2024-03-07', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
+(1037, 'Nafis Siddik', 'Male', '2001-02-25', 'EEE', 'Summer 2021', 84, 'BUEDF', '2024-03-08', 'Member', 'nafis.siddik@gmail.com', '1234'),
+(1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'BUAC', '2024-03-09', 'Member', 'humaira.rashmin@gmail.com', '1234'),
+(1039, 'Maisha Fairooz', 'Female', '2002-09-17', 'LAW', 'Spring 2022', 60, 'BIZ BEE', '2024-03-10', 'Member', 'maisha.fairooz@gmail.com', '1234'),
+(1040, 'Nihalul Kabir', 'Male', '2000-05-28', 'MNS', 'Summer 2022', 48, 'ROBU', '2024-03-11', 'Member', 'nihalul.kabir@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -328,9 +427,16 @@ CREATE TABLE `request_membership` (
   `Member_ID` int(11) NOT NULL,
   `Panel_ID` int(11) NOT NULL,
   `Club` varchar(255) NOT NULL,
-  `Request_Date` date DEFAULT NULL,
-  `Accept_Date` date DEFAULT NULL
+  `Request_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `request_membership`
+--
+
+INSERT INTO `request_membership` (`Member_ID`, `Panel_ID`, `Club`, `Request_Date`) VALUES
+(1052, 1001, 'BUCC', '2024-03-28'),
+(1052, 1006, 'BUCC', '2024-03-28');
 
 -- --------------------------------------------------------
 
@@ -352,8 +458,20 @@ CREATE TABLE `request_sponsorship` (
 
 CREATE TABLE `sponsor_contact` (
   `Sponsor` varchar(255) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sponsor_contact`
+--
+
+INSERT INTO `sponsor_contact` (`Sponsor`, `Contact`) VALUES
+('BRAC Bank Ltd.', '40011'),
+('BRAC Bank Ltd.', '40012'),
+('City Bank Ltd.', '40021'),
+('City Bank Ltd.', '40022'),
+('Prime Bank Ltd.', '40031'),
+('Prime Bank Ltd.', '40032');
 
 -- --------------------------------------------------------
 
@@ -363,8 +481,18 @@ CREATE TABLE `sponsor_contact` (
 
 CREATE TABLE `tmember_contact` (
   `Member_ID` int(11) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tmember_contact`
+--
+
+INSERT INTO `tmember_contact` (`Member_ID`, `Contact`) VALUES
+(1051, '10511'),
+(1051, '10512'),
+(1052, '10521'),
+(1052, '10522');
 
 -- --------------------------------------------------------
 
@@ -374,7 +502,7 @@ CREATE TABLE `tmember_contact` (
 
 CREATE TABLE `tsponsor_contact` (
   `Sponsor` varchar(255) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -408,6 +536,14 @@ CREATE TABLE `unregistered_member` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `unregistered_member`
+--
+
+INSERT INTO `unregistered_member` (`Member_ID`, `Name`, `Gender`, `Birth_date`, `Department`, `Admitted`, `Credits`, `Email`, `Password`) VALUES
+(1051, 'Nahid Hossain', 'Male', '2001-02-27', 'ENH', 'Spring 2020', 112, 'nahid.hossain@gmail.com', '1234'),
+(1052, 'Rakib Hossain', 'Male', '2024-03-20', 'LAW', 'Spring 2022', 84, 'rakib.hossain@gmail.com', '1234');
 
 -- --------------------------------------------------------
 

@@ -1,7 +1,16 @@
 <?php
 include('dbconnect.php');
-include('navbar.php');
+include('navbarM.php');
 session_start();
+if (isset($_GET['msg'])) {
+  echo
+  '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">'
+      . $_GET['msg'] .
+      '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>';
+}
 ?>
 
 <!doctype html>
@@ -24,8 +33,3 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<?php
-    echo $_SESSION["email"];
-    echo $_SESSION["password"];
-?>
