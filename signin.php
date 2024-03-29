@@ -1,6 +1,6 @@
 <?php
-include('dbconnect.php');
 session_start();
+include('dbconnect.php');
 
 $_SESSION["email"] = $_POST["email"];
 $_SESSION["password"] = $_POST["password"];
@@ -15,24 +15,20 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
         $rows = mysqli_query($conn, $sql);
         if ($row = mysqli_fetch_assoc($rows)) {
             if ($row["Designation"] == 'Member') {
-                header('Location: member.php');
-                exit();
+                $_SESSION["view"] = "Member";
             } else if ($row["Designation"] == 'President' || $row["Designation"] == 'Vice President' || $row["Designation"] == 'General Secretary' || $row["Designation"] == 'Treasurer') {
-                header('Location: panel.php');
-                exit();
+                $_SESSION["view"] = "Panel";
             } else if ($row["Designation"] == 'Advisor') {
-                header('Location: advisor.php');
-                exit();
+                $_SESSION["view"] = "Advisor";
             } else if ($row["Designation"] == 'Officer of Co-curricular Activities') {
-                header('Location: oca.php');
-                exit();
+                $_SESSION["view"] = "Oca";
             } else if ($row["Designation"] == 'Chairperson') {
-                header('Location: department.php');
-                exit();
+                $_SESSION["view"] = "Department";
             } else if ($row["Designation"] == 'Sponsor') {
-                header('Location: sponsor.php');
-                exit();
+                $_SESSION["view"] = "Sponsor";
             }
+            header('Location: announcement.php?mssg=Successfully Logged In');
+            exit();
         }
     }
     header('Location: login.php?error=Invalid Email or Password');

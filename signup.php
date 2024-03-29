@@ -1,14 +1,16 @@
 <?php
-include('dbconnect.php');
-include('navbarH.php');
 session_start();
+$_SESSION["view"] = "Home";
+
+include('dbconnect.php');
+include('navbar.php');
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>SignUp Page</title>
+  <title>SignUp</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +26,7 @@ session_start();
     }
 
     img {
-      width: 200px;
+      width: 150px;
       height: auto;
     }
   </style>
@@ -34,7 +36,7 @@ session_start();
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card">
+        <div class="card" style="border-radius: .5rem;">
           <div class="card-body pt-2 pb-2">
             <form action="register.php" method="POST">
               <center><img src="misc/logo.png"></center>
@@ -51,7 +53,7 @@ session_start();
                 session_destroy();
               }
               ?>
-              <div class="form-group row mt-2">
+              <div class="form-group row mt-3">
                 <label for="inputId" class="col-sm-3 col-form-label">Member ID</label>
                 <div class="col-sm-9">
                   <input type="text" name="id" class="form-control" id="inputID" placeholder="Student ID" required>

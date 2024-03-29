@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 12:10 AM
+-- Generation Time: Mar 29, 2024 at 01:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -378,7 +378,7 @@ CREATE TABLE `registered_member` (
   `Member_ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Gender` varchar(255) DEFAULT NULL,
-  `Birth_date` date DEFAULT NULL,
+  `Birth_Date` date DEFAULT NULL,
   `Department` varchar(255) DEFAULT NULL,
   `Admitted` varchar(255) DEFAULT NULL,
   `Credits` int(11) DEFAULT NULL,
@@ -393,7 +393,7 @@ CREATE TABLE `registered_member` (
 -- Dumping data for table `registered_member`
 --
 
-INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_date`, `Department`, `Admitted`, `Credits`, `Club`, `Joined_Date`, `Designation`, `Email`, `Password`) VALUES
+INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_Date`, `Department`, `Admitted`, `Credits`, `Club`, `Joined_Date`, `Designation`, `Email`, `Password`) VALUES
 (1001, 'Musarrat Tasnim', 'Female', '2001-12-16', 'CSE', 'Spring 2022', 66, 'BUCC', '2024-03-01', 'President', 'musarrat.tasnim@gmail.com', '1234'),
 (1002, 'Afif Rayhan', 'Male', '2000-06-09', 'CSE', 'Summer 2021', 78, 'BUEDF', '2024-03-01', 'President', 'afif.rayhan@gmail.com', '1234'),
 (1003, 'Raheek Raiyan', 'Male', '2001-07-18', 'CSE', 'Fall 2021', 78, 'BUAC', '2024-03-01', 'President', 'raheek.raiyan@gmail.com', '1234'),

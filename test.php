@@ -1,11 +1,14 @@
-<?php 
-    include('dbconnect.php');
-    session_start();
+<?php
+include('dbconnect.php');
+session_start();
 
-    // $contacts = "01234, 56789";
-    // $_SESSION["contacts"] = explode(', ', $contacts);
-    // $array = $_SESSION["contacts"];
-    // echo $array[1];
+// include('session.php');
+$sql2 = "SELECT Contact FROM member_contact WHERE Member_ID = 1036";
+$rows2 = mysqli_query($conn, $sql2);
 
-    echo "Today is " . date("Y-m-d") . "<br>";
-?>
+$temp = array();
+while ($row = mysqli_fetch_assoc($rows2)) {
+    array_push($temp, $row["Contact"]);
+}
+$contacts = implode(", ", $temp);
+echo $contacts;

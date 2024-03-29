@@ -1,6 +1,6 @@
 <?php
-include('dbconnect.php');
 session_start();
+include('dbconnect.php');
 
 //Session Store
 $_SESSION["id"] = $_POST["id"];

@@ -1,15 +1,16 @@
 <?php
-include('dbconnect.php');
-include('navbarH.php');
-
 session_start();
+$_SESSION["view"] = "Home";
+
+include('dbconnect.php');
+include('navbar.php');
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>Sponsorship Page</title>
+  <title>Sponsorship</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +26,7 @@ session_start();
     }
 
     img {
-      width: 200px;
+      width: 150px;
       height: auto;
     }
   </style>
@@ -35,7 +36,7 @@ session_start();
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card">
+        <div class="card mt-3" style="border-radius: .5rem;">
           <div class="card-body pt-2 pb-2">
             <form action="verify.php" method="POST">
               <center><img src="misc/logo.png"></center>
@@ -48,11 +49,11 @@ session_start();
                           <span aria-hidden="true">&times;</span>
                           </button>
                       </div>';
-              session_unset();
-              session_destroy();
+                session_unset();
+                session_destroy();
               }
               ?>
-              <div class="form-group row mt-2">
+              <div class="form-group row mt-3">
                 <label for="inputName" class="col-sm-3 col-form-label">Sponsor</label>
                 <div class="col-sm-9">
                   <input type="text" name="name" class="form-control" id="inputName" placeholder="Sponsor Brand/Bank" required>

@@ -1,28 +1,43 @@
 <?php
-include('dbconnect.php');
-include('navbarM.php');
 session_start();
-if (isset($_GET['msg'])) {
-  echo
-  '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">'
-      . $_GET['msg'] .
-      '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-      </button>
-  </div>';
-}
+include('dbconnect.php');
+include('session.php');
+include('navbar.php');
+
+if (isset($_GET['mssg'])) {
+    echo
+    '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">'
+        . $_GET['mssg'] .
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>';
+    }
 ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Member Page</title>
+    <title>Announcements</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      background-image: url('misc/campus.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    img {
+      width: 75px;
+      height: auto;
+    }
+  </style>
   </head>
   <body>
       

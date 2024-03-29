@@ -1,13 +1,16 @@
 <?php
-include('dbconnect.php');
-include('navbarH.php');
 session_start();
+$_SESSION["view"] = "Home";
+
+include('dbconnect.php');
+include('navbar.php');
 ?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>LogIn Page</title>
+    <title>LogIn</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,17 +26,17 @@ session_start();
         }
 
         img {
-            width: 200px;
+            width: 150px;
             height: auto;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row pt-5 justify-content-center">
             <div class="col-md-5">
-                <div class="card">
+                <div class="card" style="border-radius: .5rem;">
                     <div class="card-body pt-2 pb-2">
                         <form action="signin.php" method="POST">
                             <center><img src="misc/logo.png"></center>
@@ -61,7 +64,7 @@ session_start();
                                 session_destroy();
                             }
                             ?>
-                            <div class="form-group mt-1">
+                            <div class="form-group mt-2">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
                             </div>

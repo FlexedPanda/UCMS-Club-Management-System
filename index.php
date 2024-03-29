@@ -1,15 +1,16 @@
 <?php
-include('dbconnect.php');
-include('navbarH.php');
-
 session_start();
+$_SESSION["view"] = "Home";
+
+include('dbconnect.php');
+include('navbar.php');
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Home Page</title>
+    <title>HomePage</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,26 +30,32 @@ session_start();
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center text-white mt-5">BRACU Clubs</h1>
-                <hr>
+            <div class="container d-flex justify-content-center">
+                <div class="col-md-4 ">
+                    <h1 class="text-center text-white bg-dark mt-5" style="border-radius: .5rem;">BRACU Clubs</h1>
+                    <hr>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <h6 class="text-center text-light">
-                    <br>Welcome to the BRAC University Club page.
-                    <br>From here, you can find info about various clubs at BRAC University.
-                    <br>Also, You can sponsor for ongoing club events.
-                    <hr>
-                </h6>
+            <div class="container d-flex justify-content-center">
+                <div class="col-md-6 p-2">
+                    <h6 class="text-center text-light bg-dark" style="border-radius: .5rem;">
+                        <br>Welcome to the BRAC University Club page.
+                        <br>From here, you can find info about various clubs at BRAC University.
+                        <br>Also, You can sponsor for ongoing club events.
+                        <hr>
+                    </h6>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="text-center text-light bg-dark mt-5 pb-2">Ongoing Events</h2>
-                <hr>
+            <div class="container d-flex justify-content-center">
+                <div class="col-md-4">
+                    <h2 class="text-center text-light bg-dark mt-5 pb-2" style="border-radius: .5rem;">Ongoing Events</h2>
+                    <hr>
+                </div>
             </div>
             <?php
             $sql = 'SELECT Name, Club, Date, Venue, Entry_Fee from approved_event';
@@ -56,7 +63,7 @@ session_start();
 
             while ($row = mysqli_fetch_assoc($rows)) {
                 echo '<div class="col-md-4">
-                                <div class="card text-light bg-dark">
+                                <div class="card text-light bg-dark" style="border-radius: .5rem;">
                                     <div class="card-body">
                                         <h4 class="card-title text-center">' . $row["Name"] . '</h4>
                                         <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
