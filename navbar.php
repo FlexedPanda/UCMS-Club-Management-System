@@ -30,6 +30,9 @@ include('dbconnect.php');
                 <li class="nav-item active ml-2 mr-2">
                     <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item ml-1 mr-1">
+                    <a class="nav-link" href="list.php?rqst=clubevent">Club Event</a>
+                </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
                 </li>
@@ -107,6 +110,9 @@ include('dbconnect.php');
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="list.php?rqst=sponsorlist">Sponsors</a>
+                </li>
+                <li class="nav-item ml-2 mr-2">
+                    <a class="nav-link" href="management.php">Management</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="profile.php">Profile</a>

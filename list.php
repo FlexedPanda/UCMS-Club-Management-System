@@ -50,12 +50,138 @@ include('navbar.php');
             echo
             "<div class='row-md-12'>
                 <div class='col-md-6'>
-                    <h4 class='text-center text-dark bg-light m-3 p-3' style='border-radius: .5rem;'>
+                    <h4 class='text-center text-light bg-dark m-3 p-3' style='border-radius: .5rem;'>
                         " . $row['Department'] . " Department<hr>" . $row['Message'] . " 
                     </h4>
                 </div>
             </div>";
         }
+    }
+    else if($_GET["rqst"] == "eventlist"){
+        $sql = "SELECT Name, Club, Date, Venue, Entry_Fee FROM approved_event";
+        $rows = mysqli_query($conn, $sql);
+
+        if ($_SESSION["view"] == "Member" || $_SESSION["view"] == "Panel"){
+            echo '<div class="row mt-3">';
+            while ($row = mysqli_fetch_assoc($rows)) {
+                echo
+                '<div class="col-md-4 p-2">
+                    <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">' . $row["Name"] . '</h4>
+                            <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
+                            <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
+                            <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                            <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                            <button type="submit" name="participate" value="participate" class="btn btn-outline-light mt-2">Participate</button>
+                        </div>
+                    </div>
+                </div>';
+            }
+            echo '</div>';
+        }
+
+        else if ($_SESSION["view"] == "Oca"){
+            echo '<div class="row mt-3">';
+            while ($row = mysqli_fetch_assoc($rows)) {
+                echo
+                '<div class="col-md-4 p-2">
+                    <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">' . $row["Name"] . '</h4>
+                            <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
+                            <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
+                            <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                            <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                            <div class="card-text m-2">
+                                <input type="number" name="amount" placeholder="Enter Amount" required>
+                                <button type="submit" name="fund" value="fund" class="btn btn-outline-light">Fund</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+            }
+            echo '</div>';
+        }
+
+        else{
+            echo '<div class="row mt-3">';
+            while ($row = mysqli_fetch_assoc($rows)) {
+                echo
+                '<div class="col-md-4 p-2">
+                    <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">' . $row["Name"] . '</h4>
+                            <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
+                            <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
+                            <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                            <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                        </div>
+                    </div>
+                </div>';
+            }
+            echo '</div>';
+        }
+    }
+
+    else if($_GET["rqst"] == "deptlist"){ 
+        $sql = "SELECT * FROM department";
+        $rows = mysqli_query($conn, $sql);
+
+        echo 
+        '<div class="container mt-5">
+            <table class="table table-dark table-bordered table-striped table-hover text-center">
+                <tr>
+                    <th>Department</th>
+                    <th>Head</th>
+                    <th>Designation</th>
+                    <th>Email</th>
+                    <th>Established</th>
+                </tr>';
+        
+        while($row = mysqli_fetch_assoc($rows)){
+            echo 
+                '<tr>
+                    <td>'.$row["Name"].'</td>
+                    <td>'.$row["Head"].'</td>
+                    <td>'.$row["Designation"].'</td>
+                    <td>'.$row["Email"].'</td>
+                    <td>'.$row["Established"].'</td>
+                </tr>';
+        }
+        echo '</table>';
+        echo '</div>';
+    }
+
+    else if($_GET["rqst"] == "clublist"){ 
+        $sql = "SELECT * FROM club";
+        $rows = mysqli_query($conn, $sql);
+
+        echo 
+        '<div class="container mt-5">
+            <table class="table table-dark table-bordered table-striped table-hover text-center">
+                <tr>
+                    <th>Club</th>
+                    <th>Advisor</th>
+                    <th>Advisor Email</th>
+                    <th>President</th>
+                    <th>Advisor Email</th>
+                    <th>Established</th>
+                </tr>';
+        
+        while($row = mysqli_fetch_assoc($rows)){
+            echo 
+                '<tr>
+                    <td>'.$row["Name"].'</td>
+                    <td>'.$row["Advisor"].'</td>
+                    <td>'.$row["Advisor_Email"].'</td>
+                    <td>'.$row["President"].'</td>
+                    <td>'.$row["President_Email"].'</td>
+                    <td>'.$row["Established"].'</td>
+                </tr>';
+        }
+        echo '</table>';
+        echo '</div>';
     }
     ?>
     <!-- Optional JavaScript -->

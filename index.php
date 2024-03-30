@@ -62,17 +62,17 @@ include('navbar.php');
             $rows = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_assoc($rows)) {
-                echo '<div class="col-md-4">
-                                <div class="card text-light bg-dark" style="border-radius: .5rem;">
-                                    <div class="card-body">
-                                        <h4 class="card-title text-center">' . $row["Name"] . '</h4>
-                                        <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
-                                        <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
-                                        <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
-                                        <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
-                                    </div>
-                                </div>
-                            </div>';
+                echo '<div class="col-md-4 mt-3">
+                        <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">' . $row["Name"] . '</h4>
+                                <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
+                                <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
+                                <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                                <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                            </div>
+                        </div>
+                    </div>';
             }
             ?>
         </div>
