@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('dbconnect.php');
 include('session.php');
 include('navbar.php');

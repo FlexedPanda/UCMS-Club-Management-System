@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('dbconnect.php');
 
 if ($_SESSION["view"] == "Member" || $_SESSION["view"] == "Panel"){

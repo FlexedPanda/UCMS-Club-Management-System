@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 01:06 PM
+-- Generation Time: Mar 30, 2024 at 01:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -188,7 +188,7 @@ INSERT INTO `department` (`Name`, `Head`, `Designation`, `Email`, `Password`, `E
 ('ESS', 'Wasiqur Rahman Khan', 'Chairperson', 'ess@gmail.com', '1234', '2002-05-15'),
 ('LAW', 'K. Shamsuddin Mahmood', 'Chairperson', 'law@gmail.com', '1234', '2002-09-19'),
 ('MNS', 'A F M Yusuf Haider', 'Chairperson', 'mns@gmail.com', '1234', '2002-03-13'),
-('PHRM', 'Hasina Yasmin', 'Chairperson', 'phrm@gmail.com', '1234', '2002-07-17');
+('PHR', 'Hasina Yasmin', 'Chairperson', 'phrm@gmail.com', '1234', '2002-07-17');
 
 -- --------------------------------------------------------
 
@@ -201,6 +201,14 @@ CREATE TABLE `give_announcement` (
   `Club` varchar(255) NOT NULL,
   `Message` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `give_announcement`
+--
+
+INSERT INTO `give_announcement` (`Department`, `Club`, `Message`) VALUES
+('BBA', 'BIZ BEE', 'Job Fair Starts From Today.'),
+('CSE', 'BUCC', 'Club Fair Starts From Today.');
 
 -- --------------------------------------------------------
 
@@ -399,12 +407,12 @@ INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_Date`, `D
 (1003, 'Raheek Raiyan', 'Male', '2001-07-18', 'CSE', 'Fall 2021', 78, 'BUAC', '2024-03-01', 'President', 'raheek.raiyan@gmail.com', '1234'),
 (1004, 'Yeamin Adnan', 'Male', '2002-09-07', 'CSE', 'Fall 2021', 78, 'BIZ BEE', '2024-03-01', 'President', 'yeamin.adnan@gmail.com', '1234'),
 (1005, 'Nusaiba Alam', 'Female', '2000-06-22', 'CSE', 'Summer 2021', 96, 'ROBU', '2024-03-01', 'President', 'nusaiba.alam@gmail.com', '1234'),
-(1006, 'Hasan Mahmud', 'Male', '2000-04-23', 'PHRM', 'Summer 2021', 84, 'BUCC', '2024-03-02', 'Vice President', 'hasan.mahmud@gmail.com', '1234'),
+(1006, 'Hasan Mahmud', 'Male', '2000-04-23', 'PHR', 'Summer 2021', 84, 'BUCC', '2024-03-02', 'Vice President', 'hasan.mahmud@gmail.com', '1234'),
 (1007, 'Kabir Chowdhury', 'Male', '2000-08-17', 'EEE', 'Fall 2021', 72, 'BUAC', '2024-03-02', 'Vice President', 'kabir.chowdhury@gmail.com', '1234'),
 (1008, 'Nabil Ahmed', 'Male', '2001-09-28', 'LAW', 'Spring 2021', 96, 'BIZ BEE', '2024-03-02', 'Vice President', 'nabil.ahmed@gmail.com', '1234'),
 (1009, 'Mubtasim Fuad', 'Male', '2002-01-23', 'ENH', 'Spring 2022', 60, 'BUEDF', '2024-03-02', 'Vice President', 'mubtasim.fuad@gmail.com', '1234'),
 (1010, 'Towfiq Mahmud', 'Male', '2000-08-22', 'ARCH', 'Spring 2021', 96, 'ROBU', '2024-03-02', 'Vice President', 'towfiq.mahmud@gmail.com', '1234'),
-(1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'BBA', 'Spring 2021', 96, 'BUCC', '2024-03-07', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
+(1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'CSE', 'Spring 2021', 96, 'BUCC', '2024-03-07', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
 (1037, 'Nafis Siddik', 'Male', '2001-02-25', 'EEE', 'Summer 2021', 84, 'BUEDF', '2024-03-08', 'Member', 'nafis.siddik@gmail.com', '1234'),
 (1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'BUAC', '2024-03-09', 'Member', 'humaira.rashmin@gmail.com', '1234'),
 (1039, 'Maisha Fairooz', 'Female', '2002-09-17', 'LAW', 'Spring 2022', 60, 'BIZ BEE', '2024-03-10', 'Member', 'maisha.fairooz@gmail.com', '1234'),

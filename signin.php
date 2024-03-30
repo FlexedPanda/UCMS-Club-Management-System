@@ -27,7 +27,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["password"])) {
             } else if ($row["Designation"] == 'Sponsor') {
                 $_SESSION["view"] = "Sponsor";
             }
-            header('Location: announcement.php?mssg=Successfully Logged In');
+            header('Location: profile.php?mssg=Successfully Logged In');
             exit();
         }
     }
