@@ -251,21 +251,26 @@ include('navbar.php');
         echo '<div class="row pt-3 justify-content-center">';
         while ($row = mysqli_fetch_assoc($rows)) {
             echo
-            '<div class="col-md-6">
+            '<div class="col-md-4">
                 <div class="card" style="border-radius: .5rem;">
                     <div class="card-body">
                     <center><img src="misc/logo.png"></center>
-                        <h5 class="card-title text-center pt-2">' . $row["Club"] . '</h5>
-                        <h4 class="card-title text-center pt-2">' . $row["Name"] . '</h4>
-                        <p class="card-text m-2 pl-5"><b>Date :</b>  ' . $row["Date"] . '</p>
-                        <p class="card-text m-2 pl-5"><b>Venue :</b>  ' . $row["Venue"] . '</p>
-                        <p class="card-text m-2 pl-5"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                        <h6 class="card-title text-center text-secondary">' . $row["Club"] . '</h6>
+                        <h3 class="card-title pt-1 pb-3 text-center">' . $row["Name"] . '</h3>
+                        <h6 class="card-text pl-5 text-secondary"><b>Event ID :</b>  ' . $row["Event_ID"] . '</h6>
+                        <h6 class="card-text pl-5 text-secondary"><b>Date :</b>  ' . $row["Date"]. '</h6>
+                        <h6 class="card-text pl-5 text-secondary"><b>Venue :</b>  ' . $row["Venue"] . '</h6>
+                        <h6 class="card-text pl-5 text-secondary"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</h6>
+                        <h6 class="card-text pl-5 text-secondary"><b>Capacity :</b>  ' . $row["Capacity"] . ' person</h6>
+                        <h6 class="card-text pl-5 text-secondary"><b>Participants :</b>  ' . $row["Participants"] . ' person</h6>
                     </div>
                 </div>
             </div>
             </div>';
         }
     }
+
+
     ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
