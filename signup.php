@@ -36,7 +36,7 @@ include('navbar.php');
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card" style="border-radius: .5rem;">
+        <div class="card mt-3 mb-3" style="border-radius: .5rem;">
           <div class="card-body pt-2 pb-2">
             <form action="register.php" method="POST">
               <center><img src="misc/logo.png"></center>

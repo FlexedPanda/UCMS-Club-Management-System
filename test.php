@@ -1,14 +1,50 @@
 <?php
 include('dbconnect.php');
 session_start();
+?>
 
-// include('session.php');
-$sql2 = "SELECT Contact FROM member_contact WHERE Member_ID = 1036";
-$rows2 = mysqli_query($conn, $sql2);
+<!DOCTYPE html> 
+<html> 
+	
+<head> 
+	<title> 
+		How to call PHP function 
+		on the click of a Button ? 
+	</title> 
+</head> 
 
-$temp = array();
-while ($row = mysqli_fetch_assoc($rows2)) {
-    array_push($temp, $row["Contact"]);
-}
-$contacts = implode(", ", $temp);
-echo $contacts;
+<body style="text-align:center;"> 
+	
+	<h1 style="color:green;"> 
+		GeeksforGeeks 
+	</h1> 
+	
+	<h4> 
+		How to call PHP function 
+		on the click of a Button ? 
+	</h4> 
+	
+	<?php
+		if(array_key_exists('button', $_GET)) { 
+			button1(); 
+		} 
+		else if(array_key_exists('button', $_GET)) { 
+			button2(); 
+		} 
+		function button1() { 
+			echo "This is Button1 that is selected"; 
+		} 
+		function button2() { 
+			echo "This is Button2 that is selected"; 
+		} 
+	?> 
+
+	<form method="get"> 
+		<button class="button" name="button" value="Button1">Participate</button> 
+		
+		<button class="button" name="button" value="Button2">Participate</button>
+	</form> 
+    <?php echo $_GET["button"];?>
+</body> 
+
+</html> 

@@ -31,20 +31,12 @@ include('navbar.php');
     <div class="container">
         <div class="row">
             <div class="container d-flex justify-content-center">
-                <div class="col-md-4 ">
-                    <h1 class="text-center text-white bg-dark mt-5" style="border-radius: .5rem;">BRACU Clubs</h1>
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container d-flex justify-content-center">
                 <div class="col-md-6 p-2">
-                    <h6 class="text-center text-light bg-dark" style="border-radius: .5rem;">
+                    <h1 class="text-center text-white bg-dark mt-5 ml-5 mr-5 p-2" style="border-radius: .5rem;">BRACU Clubs</h1>
+                    <h6 class="text-center text-light bg-dark p-2 pb-4 pl-4" style="border-radius: .5rem;">
                         <br>Welcome to the BRAC University Club page.
                         <br>From here, you can find info about various clubs at BRAC University.
                         <br>Also, You can sponsor for ongoing club events.
-                        <hr>
                     </h6>
                 </div>
             </div>
@@ -53,23 +45,23 @@ include('navbar.php');
         <div class="row">
             <div class="container d-flex justify-content-center">
                 <div class="col-md-4">
-                    <h2 class="text-center text-light bg-dark mt-5 pb-2" style="border-radius: .5rem;">Ongoing Events</h2>
+                    <h2 class="text-center text-light bg-dark mt-5 p-1" style="border-radius: .5rem;">Ongoing Events</h2>
                     <hr>
                 </div>
             </div>
             <?php
-            $sql = 'SELECT Name, Club, Date, Venue, Entry_Fee from approved_event';
+            $sql = 'SELECT * FROM approved_event';
             $rows = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_assoc($rows)) {
-                echo '<div class="col-md-4 mt-3">
-                        <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                echo '<div class="col-md-4 mt-2">
+                        <div class="card text-light bg-dark mb-3" style="border-radius: .5rem;">
                             <div class="card-body">
                                 <h4 class="card-title text-center">' . $row["Name"] . '</h4>
-                                <p class="card-text m-2"><b>Club :</b> ' . $row["Club"] . '</p>
-                                <p class="card-text m-2"><b>Date :</b>  ' . $row["Date"] . '</p>
-                                <p class="card-text m-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
-                                <p class="card-text m-2"><b>Entry :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                                <p class="card-text m-2 pl-5"><b>Club :</b> ' . $row["Club"] . '</p>
+                                <p class="card-text m-2 pl-5"><b>Date :</b>  ' . $row["Date"] . '</p>
+                                <p class="card-text m-2 pl-5"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                                <p class="card-text m-2 pl-5"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
                             </div>
                         </div>
                     </div>';

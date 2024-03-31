@@ -28,19 +28,19 @@ include('dbconnect.php');
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item active ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=clubevent">Club Event</a>
+                    <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clublist">Clubs</a>
+                    <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=deptlist">Departments</a>
+                    <a class="nav-link" href="script.php?rqst=deptlist">Departments</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="profile.php">Profile</a>
@@ -55,19 +55,19 @@ include('dbconnect.php');
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item active ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=clubevent">Club Event</a>
+                    <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=clubpanel">Club Panel</a>
+                    <a class="nav-link" href="script.php?rqst=clubpanel">Club Panel</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="list.php?rqst=clubmembers">Members</a>
+                    <a class="nav-link" href="script.php?rqst=clubmembers">Members</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="pending.php">Pendings</a>
@@ -91,25 +91,25 @@ include('dbconnect.php');
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item active ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clubevent">Club Event</a>
+                    <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clubpanel">Club Panel</a>
+                    <a class="nav-link" href="script.php?rqst=clubpanel">Club Panel</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clubmembers">Club Members</a>
+                    <a class="nav-link" href="script.php?rqst=clubmembers">Club Members</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=ocalist">OCAs</a>
+                    <a class="nav-link" href="script.php?rqst=ocalist">OCAs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=sponsorlist">Sponsors</a>
+                    <a class="nav-link" href="script.php?rqst=sponsorlist">Sponsors</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="management.php">Management</a>
@@ -127,22 +127,22 @@ include('dbconnect.php');
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item active ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clublist">Clubs</a>
+                    <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=panellist">Panels</a>
+                    <a class="nav-link" href="script.php?rqst=panellist">Panels</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=memberlist">Members</a>
+                    <a class="nav-link" href="script.php?rqst=memberlist">Members</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=sponsorlist">Sponsors</a>
+                    <a class="nav-link" href="script.php?rqst=sponsorlist">Sponsors</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="eventreq.php">Requests</a>
@@ -159,13 +159,13 @@ include('dbconnect.php');
 
             <?php } else if ($_SESSION["view"] == "Sponsor") { ?>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clublist">Clubs</a>
+                    <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=ocalist">OCAs</a>
+                    <a class="nav-link" href="script.php?rqst=ocalist">OCAs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="fundreq.php">Fund Event</a>
@@ -183,25 +183,25 @@ include('dbconnect.php');
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <li class="nav-item active ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="announce.php">Announce</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=deptlist">Departments</a>
+                    <a class="nav-link" href="script.php?rqst=deptlist">Departments</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=eventlist">Events</a>
+                    <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=clublist">Clubs</a>
+                    <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=panellist">Club Panels</a>
+                    <a class="nav-link" href="script.php?rqst=panellist">Club Panels</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="list.php?rqst=advisorlist">Advisors</a>
+                    <a class="nav-link" href="script.php?rqst=advisorlist">Advisors</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="profile.php">Profile</a>

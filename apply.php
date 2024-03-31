@@ -46,9 +46,9 @@ include('navbar.php');
                 '<div class="alert alert-danger text-center pl-4 alert-dismissible fade show" role="alert">'
                   . $_GET["error"] .
                   '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>';
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>';
                 session_unset();
                 session_destroy();
               }
