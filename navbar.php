@@ -70,7 +70,7 @@ include('dbconnect.php');
                     <a class="nav-link" href="script.php?rqst=clubmembers">Members</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="pending.php">Pendings</a>
+                    <a class="nav-link" href="script.php?rqst=pending">Pendings</a>
                 </li>
                 <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="request.php">Requests</a>
@@ -86,38 +86,38 @@ include('dbconnect.php');
                 </li>
 
             <?php } else if ($_SESSION["view"] == "Advisor") { ?>
-                <form class="form-inline my-2 my-lg-0 mr-2">
+                <form class="form-inline my-2 my-lg-0 mr-1">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
-                <li class="nav-item active ml-2 mr-2">
+                <li class="nav-item active ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=clubpanel">Club Panel</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=clubmembers">Club Members</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=ocalist">OCAs</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="script.php?rqst=sponsorlist">Sponsors</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="management.php">Management</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="profile.php">Profile</a>
                 </li>
-                <li class="nav-item ml-2 mr-2">
+                <li class="nav-item ml-1 mr-1">
                     <a class="nav-link" href="logout.php">LogOut</a>
                 </li>
 

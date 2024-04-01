@@ -29,77 +29,89 @@ include('navbar.php');
       width: 150px;
       height: auto;
     }
+
+    html {
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FF0000;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card mt-3" style="border-radius: .5rem;">
-          <div class="card-body pt-2 pb-2">
-            <form action="verify.php" method="POST">
-              <center><img src="misc/logo.png"></center>
-              <?php
-              if (isset($_GET['error'])) {
-                echo
-                '<div class="alert alert-danger text-center pl-4 alert-dismissible fade show" role="alert">'
-                  . $_GET["error"] .
-                  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>';
-                session_unset();
-                session_destroy();
-              }
-              ?>
-              <div class="form-group row mt-3">
-                <label for="inputName" class="col-sm-3 col-form-label">Sponsor</label>
-                <div class="col-sm-9">
-                  <input type="text" name="name" class="form-control" id="inputName" placeholder="Sponsor Brand/Bank" required>
-                </div>
+  <div class="row mt-3 d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card" style="border-radius: .5rem;">
+        <div class="card-body pt-2 pb-2">
+          <form action="verify.php" method="POST">
+            <center><img src="misc/logo.png"></center>
+            <?php
+            if (isset($_GET['error'])) {
+              echo
+              '<div class="alert alert-danger text-center ml-5 mr-5 alert-dismissible" role="alert">'
+                . $_GET["error"] .
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+              session_unset();
+              session_destroy();
+            }
+            ?>
+            <div class="form-group row mt-3">
+              <label for="inputName" class="col-sm-3 col-form-label">Sponsor</label>
+              <div class="col-sm-9">
+                <input type="text" name="name" class="form-control" id="inputName" placeholder="Sponsor Brand/Bank" required>
               </div>
-              <div class="form-group row">
-                <label for="inputAgent" class="col-sm-3 col-form-label">Agent</label>
-                <div class="col-sm-9">
-                  <input type="text" name="agent" class="form-control" id="inputAgent" placeholder="Sponsor Agent" required>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputAgent" class="col-sm-3 col-form-label">Agent</label>
+              <div class="col-sm-9">
+                <input type="text" name="agent" class="form-control" id="inputAgent" placeholder="Sponsor Agent" required>
               </div>
-              <div class="form-group row">
-                <label for="inputContact" class="col-sm-3 col-form-label">Contacts</label>
-                <div class="col-sm-9">
-                  <input type="text" name="contacts" class="form-control" id="inputContact" placeholder="Separate by Comma" required>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputContact" class="col-sm-3 col-form-label">Contacts</label>
+              <div class="col-sm-9">
+                <input type="text" name="contacts" class="form-control" id="inputContact" placeholder="Separate by Comma" required>
               </div>
-              <div class="form-group row">
-                <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-9">
-                  <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Your Email" required>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Your Email" required>
               </div>
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
-                <div class="col-sm-9">
-                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
               </div>
-              <div class="form-group row">
-                <label for="inputConfirm" class="col-sm-3 col-form-label">Confirmation</label>
-                <div class="col-sm-9">
-                  <input type="password" name="confirm" class="form-control" id="inputConfirm" placeholder="Confirm Password" required>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputConfirm" class="col-sm-3 col-form-label">Confirm</label>
+              <div class="col-sm-9">
+                <input type="password" name="confirm" class="form-control" id="inputConfirm" placeholder="Confirm Password" required>
               </div>
-              <div class="form-group text-center pt-2">
-                <span>Already Verified? LogIn Instead |</span>
-                <a href="login.php">Log In</a>
+            </div>
+            <div class="form-group text-center pt-2">
+              <span>Already Verified? LogIn Instead |</span>
+              <a href="login.php">Log In</a>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Apply</button>
               </div>
-              <div class="form-group row">
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Apply</button>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

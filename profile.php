@@ -5,11 +5,15 @@ include('navbar.php');
 
 if (isset($_GET['mssg'])) {
   echo
-  '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">'
-      . $_GET['mssg'] .
-      '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-      </button>
+  '<div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+      <div class="alert alert-success alert-dismissible text-center" role="alert">
+        '. $_GET['mssg'] .'
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
   </div>';
   }
 ?>
@@ -18,7 +22,7 @@ if (isset($_GET['mssg'])) {
 <html lang="en">
 
 <head>
-  <title>Profile</title>
+  <title>HomePage</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,6 +40,20 @@ if (isset($_GET['mssg'])) {
     img {
       width: 75px;
       height: auto;
+    }
+
+    html {
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0; 
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FF0000;
     }
   </style>
 </head>

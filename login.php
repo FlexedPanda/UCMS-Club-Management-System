@@ -29,56 +29,68 @@ include('navbar.php');
             width: 150px;
             height: auto;
         }
+
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF0000;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row pt-5 justify-content-center">
-            <div class="col-md-5">
-                <div class="card" style="border-radius: .5rem;">
-                    <div class="card-body pt-2 pb-2">
-                        <form action="signin.php" method="POST">
-                            <center><img src="misc/logo.png"></center>
-                            <?php
-                            if (isset($_GET['error'])) {
-                                echo
-                                '<div class="alert alert-danger text-center alert-dismissible fade show" role="alert">'
-                                    . $_GET["error"] .
-                                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>';
-                                session_unset();
-                                session_destroy();
-                            }
-                            if (isset($_GET['mssg'])) {
-                                echo
-                                '<div class="alert alert-success text-center pl-4 alert-dismissible fade show" role="alert">'
-                                    . $_GET["mssg"] .
-                                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>';
-                                session_unset();
-                                session_destroy();
-                            }
-                            ?>
-                            <div class="form-group mt-2">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
-                            </div>
-                            <div class="form-group mt-1">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
-                            </div>
-                            <div class="form-group text-center pt-2">
-                                <span>New Here? Create Account |</span>
-                                <a href="signup.php"> Sign Up</a>
-                            </div>
-                            <button type="submit" name="submit" value="submit" class="btn btn-primary">Log In</button>
-                        </form>
-                    </div>
+    <div class="row mt-5 pl-5 pr-5 d-flex justify-content-center">
+        <div class="col-md-4 mt-5 pl-5 pr-5">
+            <div class="card" style="border-radius: .5rem;">
+                <div class="card-body pt-2 pb-2">
+                    <form action="signin.php" method="POST">
+                        <center><img src="misc/logo.png"></center>
+                        <?php
+                        if (isset($_GET['error'])) {
+                            echo
+                            '<div class="alert alert-danger alert-dismissible text-center" role="alert">
+                                ' . $_GET['error'] . '
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                            session_unset();
+                            session_destroy();
+                        }
+                        if (isset($_GET['mssg'])) {
+                            echo
+                            '<div class="alert alert-success alert-dismissible text-center" role="alert">
+                                ' . $_GET['mssg'] . '
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                            session_unset();
+                            session_destroy();
+                        }
+                        ?>
+                        <div class="form-group mt-2">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+                        <div class="form-group text-center pt-2">
+                            <span>New Here? Create Account |</span>
+                            <a href="signup.php"> Sign Up</a>
+                        </div>
+                        <button type="submit" name="submit" value="submit" class="btn btn-primary">Log In</button>
+                    </form>
                 </div>
             </div>
         </div>

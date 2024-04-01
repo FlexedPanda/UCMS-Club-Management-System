@@ -10,7 +10,7 @@ include('navbar.php');
 <html lang="en">
 
 <head>
-    <title>HomePage</title>
+    <title>Welcome</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,6 +23,20 @@ include('navbar.php');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
+        }
+
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0; 
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF0000;
         }
     </style>
 </head>

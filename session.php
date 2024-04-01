@@ -55,6 +55,10 @@ else if ($_SESSION["view"] == "Advisor"){
     $contacts = implode(", ", $temp);
     $_SESSION["contacts"] = $contacts;
 
+    $sql3 = "SELECT * FROM club WHERE Advisor_ID = ".$_SESSION["id"]."";
+    $rows3 = mysqli_query($conn, $sql3);
+    $row = mysqli_fetch_assoc($rows3);
+    $_SESSION["club"] = $row["Name"];
 }
 
 else if ($_SESSION["view"] == "Oca"){

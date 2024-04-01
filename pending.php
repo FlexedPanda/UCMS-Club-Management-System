@@ -36,6 +36,20 @@ if (isset($_GET['mssg'])) {
       width: 75px;
       height: auto;
     }
+
+    html {
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0; 
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FF0000;
+    }
   </style>
   </head>
   <body>

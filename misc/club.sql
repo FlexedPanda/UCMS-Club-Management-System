@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 06:50 AM
+-- Generation Time: Apr 01, 2024 at 03:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,11 +44,7 @@ INSERT INTO `advisor` (`Advisor_ID`, `Name`, `Designation`, `Email`, `Password`)
 (2002, 'Md. Khalilur Rahman', 'Advisor', 'khalilur@gmail.com', '1234'),
 (2003, 'Arif Shakil', 'Advisor', 'arif@gmail.com', '1234'),
 (2004, 'Mohammad Atiqul Basher', 'Advisor', 'basher@gmail.com', '1234'),
-(2005, 'Kabbya Kantam Patwary', 'Advisor', 'kabbya@gmail.com', '1234'),
-(2006, 'Shamim Ehsanul Haque', 'Advisor', 'shamim@gmail.com', '1234'),
-(2007, 'Liza Reshmin', 'Advisor', 'liza@gmail.com', '1234'),
-(2008, 'Sanjida Hossain Sabah', 'Advisor', 'sabah@gmail.com', '1234'),
-(2009, 'Tanjina Khan', 'Advisor', 'tanjina@gmail.com', '1234');
+(2005, 'Shamim Ehsanul Haque', 'Advisor', 'shamim@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -75,15 +71,7 @@ INSERT INTO `advisor_contact` (`Advisor_ID`, `Contact`) VALUES
 (2004, '20041'),
 (2004, '20042'),
 (2005, '20051'),
-(2005, '20052'),
-(2006, '20061'),
-(2006, '20062'),
-(2007, '20071'),
-(2007, '20072'),
-(2008, '20081'),
-(2008, '20082'),
-(2009, '20091'),
-(2009, '20092');
+(2005, '20052');
 
 -- --------------------------------------------------------
 
@@ -111,10 +99,12 @@ CREATE TABLE `approved_event` (
 --
 
 INSERT INTO `approved_event` (`Event_ID`, `Club`, `Name`, `Date`, `Venue`, `Entry_Fee`, `Advisor_ID`, `Capacity`, `Event_Cost`, `Participants`, `Fundings`, `Earnings`) VALUES
-(5001, 'BIZ BEE', 'Talent BEE Hunt', '2024-03-20', 'Auditorium, Ground Floor', 10, 2006, 100, 10000, 0, 0, 0),
+(5001, 'BIZ BEE', 'Talent BEE Hunt', '2024-03-20', 'Auditorium, Ground Floor', 10, 2005, 100, 10000, 0, 0, 0),
 (5002, 'ROBU', 'Soccer Bot Competition', '2024-03-21', 'Free Space, 6th Floor', 25, 2002, 100, 1000, 0, 0, 0),
 (5003, 'BUCC', 'Cyber Security Session', '2024-03-22', 'Auditorium, 10th Floor', 50, 2001, 100, 10000, 0, 0, 0),
-(5004, 'BUAC', 'Sajek Valley Tour', '2024-03-23', 'Sajek, Khagrachari', 1000, 2003, 100, 100000, 0, 0, 0);
+(5004, 'BUAC', 'Sajek Valley Tour', '2024-03-23', 'Sajek, Khagrachari', 1000, 2003, 100, 100000, 0, 0, 0),
+(5005, 'BUCC', 'Competitive Programming', '2024-03-24', 'Research Lab, 12th Floor', 100, 2001, 50, 10000, 0, 0, 0),
+(5006, 'ROBU', 'Project Duburi', '2024-03-23', 'ROBU Lab, 6th Floor', 0, 2002, 10, 50000, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -139,7 +129,7 @@ CREATE TABLE `club` (
 --
 
 INSERT INTO `club` (`Name`, `Advisor_ID`, `Advisor`, `Advisor_Email`, `President_ID`, `President`, `President_Email`, `Established`, `Club_Reserve`) VALUES
-('BIZ BEE', 2006, 'Shamim Ehsanul Haque', 'shamim@gmail.com', 1004, 'Yeamin Adnan', 'yeamin.adnan@gmail.com', '2014-10-21', 0),
+('BIZ BEE', 2005, 'Shamim Ehsanul Haque', 'shamim@gmail.com', 1004, 'Yeamin Adnan', 'yeamin.adnan@gmail.com', '2014-10-21', 0),
 ('BUAC', 2003, 'Arif Shakil', 'arif@gmail.com', 1003, 'Raheek Raiyan', 'raheek.raiyan@gmail.com', '2014-10-21', 0),
 ('BUCC', 2001, 'Annajiat Alim Rasel', 'annajiat@gmail.com', 1001, 'Musarrat Tasnim', 'musarrat.tasnim@gmail.com', '2014-10-21', 0),
 ('BUEDF', 2004, 'Mohammad Atiqul Basher', 'basher@gmail.com', 1002, 'Afif Rayhan', 'afif.rayhan@gmail.com', '2014-10-21', 0),
@@ -303,8 +293,7 @@ INSERT INTO `member_contact` (`Member_ID`, `Contact`) VALUES
 (1038, '10382'),
 (1039, '10391'),
 (1039, '10392'),
-(1040, '10401'),
-(1040, '10402');
+(1040, '10401');
 
 -- --------------------------------------------------------
 
@@ -323,7 +312,15 @@ CREATE TABLE `moderate` (
 
 INSERT INTO `moderate` (`Member_ID`, `Panel_ID`) VALUES
 (1036, 1001),
-(1036, 1006);
+(1036, 1006),
+(1037, 1002),
+(1037, 1009),
+(1038, 1003),
+(1038, 1007),
+(1039, 1004),
+(1039, 1038),
+(1040, 1005),
+(1040, 1010);
 
 -- --------------------------------------------------------
 
@@ -439,9 +436,9 @@ INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_Date`, `D
 (1010, 'Towfiq Mahmud', 'Male', '2000-08-22', 'ARCH', 'Spring 2021', 96, 'ROBU', '2024-03-02', 'Vice President', 'towfiq.mahmud@gmail.com', '1234'),
 (1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'CSE', 'Spring 2021', 96, 'BUCC', '2024-03-07', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
 (1037, 'Nafis Siddik', 'Male', '2001-02-25', 'EEE', 'Summer 2021', 84, 'BUEDF', '2024-03-08', 'Member', 'nafis.siddik@gmail.com', '1234'),
-(1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'BUAC', '2024-03-09', 'Member', 'humaira.rashmin@gmail.com', '1234'),
+(1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'ROBU', '2024-03-09', 'Member', 'humaira.rashmin@gmail.com', '1234'),
 (1039, 'Maisha Fairooz', 'Female', '2002-09-17', 'LAW', 'Spring 2022', 60, 'BIZ BEE', '2024-03-10', 'Member', 'maisha.fairooz@gmail.com', '1234'),
-(1040, 'Nihalul Kabir', 'Male', '2000-05-28', 'MNS', 'Summer 2022', 48, 'ROBU', '2024-03-11', 'Member', 'nihalul.kabir@gmail.com', '1234');
+(1040, 'Nihal Kabir', 'Male', '2001-06-06', 'CSE', 'Spring 2022', 48, 'ROBU', '2024-03-11', 'Member', 'nihal.kabir@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -476,8 +473,12 @@ CREATE TABLE `request_membership` (
 --
 
 INSERT INTO `request_membership` (`Member_ID`, `Panel_ID`, `Club`, `Request_Date`) VALUES
+(1051, 1005, 'ROBU', '2024-04-15'),
+(1051, 1010, 'ROBU', '2024-04-15'),
 (1052, 1001, 'BUCC', '2024-03-28'),
-(1052, 1006, 'BUCC', '2024-03-28');
+(1052, 1006, 'BUCC', '2024-03-28'),
+(1054, 1005, 'ROBU', '2024-04-16'),
+(1054, 1010, 'ROBU', '2024-04-16');
 
 -- --------------------------------------------------------
 
@@ -533,7 +534,9 @@ INSERT INTO `tmember_contact` (`Member_ID`, `Contact`) VALUES
 (1051, '10511'),
 (1051, '10512'),
 (1052, '10521'),
-(1052, '10522');
+(1052, '10522'),
+(1054, '10541'),
+(1054, '10542');
 
 -- --------------------------------------------------------
 
@@ -593,7 +596,8 @@ CREATE TABLE `unregistered_member` (
 
 INSERT INTO `unregistered_member` (`Member_ID`, `Name`, `Gender`, `Birth_date`, `Department`, `Admitted`, `Credits`, `Email`, `Password`) VALUES
 (1051, 'Nahid Hossain', 'Male', '2001-02-27', 'ENH', 'Spring 2020', 112, 'nahid.hossain@gmail.com', '1234'),
-(1052, 'Rakib Hossain', 'Male', '2024-03-20', 'LAW', 'Spring 2022', 84, 'rakib.hossain@gmail.com', '1234');
+(1052, 'Rakib Hossain', 'Male', '2024-03-20', 'LAW', 'Spring 2022', 84, 'rakib.hossain@gmail.com', '1234'),
+(1054, 'Adnan Nur', 'Male', '2000-03-15', 'BBA', 'Spring 2023', 24, 'adnan.nur@gmail.com', '1234');
 
 -- --------------------------------------------------------
 

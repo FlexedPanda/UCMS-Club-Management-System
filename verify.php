@@ -26,7 +26,7 @@ $rows1 = mysqli_query($conn, $sql1);
 $rows2 = mysqli_query($conn, $sql2);
 
 if (mysqli_num_rows($rows1) != 0 || mysqli_num_rows($rows2) != 0) {
-    header('Location: apply.php?error=Request Has Already Been Sent');
+    header('Location: apply.php?error=Request Already Sent');
     exit();
 }
 
@@ -64,7 +64,7 @@ foreach($tables as $table){
 
 //Confirm Check
 if ($password != $check) {
-    header('Location: apply.php?error=Password Mismatch');
+    header("Location: apply.php?error=Passwords Don't Match");
     exit();
 }
 
@@ -86,6 +86,6 @@ while ($row = mysqli_fetch_assoc($rows3)) {
     $rows4 = mysqli_query($conn, $sql4);
 }
 
-header('Location: login.php?mssg=Request Sent Successfully');
+header('Location: login.php?mssg=Request Successful');
 exit();
 ?>
