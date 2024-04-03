@@ -2,11 +2,13 @@
 include('dbconnect.php');
 ?>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand ml-md-3 ml-sm-0 " href="https://www.bracu.ac.bd/">BRAC University</a>
+<nav class="navbar py-0 sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ml-md-1 ml-sm-0" href="https://www.bracu.ac.bd/">
+        <img src="misc/dlogo.png" alt="BRAC University" style="width:60px;">
+    </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav ml-auto mt-0 mr-3">
+        <ul class="navbar-nav ml-auto mt-0">
 
             <?php if ($_SESSION["view"] == "Home") { ?>
                 <li class="nav-item active ml-2 mr-2">
@@ -19,7 +21,7 @@ include('dbconnect.php');
                     <a class="nav-link" href="signup.php">SignUp</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
-                    <a class="nav-link" href="apply.php">Sponsorship</a>
+                    <a class="nav-link" href="sponsor.php">Sponsorship</a>
                 </li>
 
             <?php } else if ($_SESSION["view"] == "Member") { ?>
@@ -30,11 +32,11 @@ include('dbconnect.php');
                 <li class="nav-item active ml-2 mr-2">
                     <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
-                </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
+                </li>
+                <li class="nav-item ml-1 mr-1">
+                    <a class="nav-link" href="script.php?rqst=clubevent">Club Events</a>
                 </li>
                 <li class="nav-item ml-2 mr-2">
                     <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
@@ -54,34 +56,43 @@ include('dbconnect.php');
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
-                <li class="nav-item active ml-1 mr-1">
+                <li class="nav-item active ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=announcement">Announcements<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=eventlist">Events</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=clubevent">Club Event</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=clubpanel">Club Panel</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=clubmembers">Members</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="script.php?rqst=pending">Pendings</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
-                    <a class="nav-link" href="request.php">Requests</a>
+                <li class="nav-item ml-0 mr-0">
+                    <a class="nav-link" href="script.php?rqst=advisorlist">Advisors</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
+                    <a class="nav-link" href="script.php?rqst=clublist">Clubs</a>
+                </li>
+                <li class="nav-item ml-0 mr-0">
+                    <a class="nav-link" href="script.php?rqst=deptlist">Departments</a>
+                </li>
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="contact.php">Contacts</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
+                    <a class="nav-link" href="request.php">Request</a>
+                </li>
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="profile.php">Profile</a>
                 </li>
-                <li class="nav-item ml-1 mr-1">
+                <li class="nav-item ml-0 mr-0">
                     <a class="nav-link" href="logout.php">LogOut</a>
                 </li>
 

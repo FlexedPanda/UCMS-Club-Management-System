@@ -30,8 +30,13 @@ include('navbar.php');
             overflow-x: hidden;
         }
 
+        img {
+            width: 75px;
+            height: auto;
+        }
+
         ::-webkit-scrollbar {
-            width: 0; 
+            width: 0;
             background: transparent;
         }
 
@@ -45,43 +50,41 @@ include('navbar.php');
     <div class="container">
         <div class="row">
             <div class="container d-flex justify-content-center">
-                <div class="col-md-6 p-2">
-                    <h1 class="text-center text-white bg-dark mt-5 ml-5 mr-5 p-2" style="border-radius: .5rem;">BRACU Clubs</h1>
-                    <h6 class="text-center text-light bg-dark p-2 pb-4 pl-4" style="border-radius: .5rem;">
-                        <br>Welcome to the BRAC University Club page.
-                        <br>From here, you can find info about various clubs at BRAC University.
-                        <br>Also, You can sponsor for ongoing club events.
+                <div class="col-md-6 mt-2 p-2">
+                    <h1 class="text-center text-white bg-dark mt-5 mb-0 p-2" style="border-radius: .5rem;">BRACU Clubs</h1>
+                    <h6 class="text-center text-light bg-dark mt-0 p-2 pb-4 pl-4" style="border-radius: .5rem;">
+                        Welcome to the BRAC University Club page.<br>
+                        From here, you can find info about various clubs at BRAC University.<br>
+                        Also, You can sponsor for ongoing club events.
                     </h6>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="container d-flex justify-content-center">
-                <div class="col-md-4">
-                    <h2 class="text-center text-light bg-dark mt-5 p-1" style="border-radius: .5rem;">Ongoing Events</h2>
+                    <h2 class="text-center text-light bg-dark mt-5 mb-0 p-1" style="border-radius: .5rem;">Ongoing Events</h2>
                     <hr>
                 </div>
             </div>
-            <?php
-            $sql = 'SELECT * FROM approved_event';
-            $rows = mysqli_query($conn, $sql);
-
-            while ($row = mysqli_fetch_assoc($rows)) {
-                echo '<div class="col-md-4 mt-2">
-                        <div class="card text-light bg-dark mb-3" style="border-radius: .5rem;">
-                            <div class="card-body">
-                                <h4 class="card-title text-center">' . $row["Name"] . '</h4>
-                                <p class="card-text m-2 pl-5"><b>Club :</b> ' . $row["Club"] . '</p>
-                                <p class="card-text m-2 pl-5"><b>Date :</b>  ' . $row["Date"] . '</p>
-                                <p class="card-text m-2 pl-5"><b>Venue :</b>  ' . $row["Venue"] . '</p>
-                                <p class="card-text m-2 pl-5"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
-                            </div>
-                        </div>
-                    </div>';
-            }
-            ?>
         </div>
+        <?php
+        $sql = 'SELECT * FROM approved_event';
+        $rows = mysqli_query($conn, $sql);
+
+        echo '<div class="container">';
+        echo '<div class="row">';
+        while ($row = mysqli_fetch_assoc($rows)) {
+            echo '<div class="col-md-4 p-2">
+                    <div class="card text-light bg-dark" style="border-radius: .5rem;">
+                        <div class="card-body">
+                            <center><img class="card-text" src="misc/dlogo.png"></center>
+                            <h6 class="card-title text-center text-secondary">' . $row["Club"] . '</h6>
+                            <h4 class="card-title text-center py-2">' . $row["Name"] . '</h4>
+                            <p class="card-text m-2 pl-2"><b>Date :</b>  ' . $row["Date"] . '</p>
+                            <p class="card-text m-2 pl-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
+                            <p class="card-text m-2 pl-2"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
+                        </div>
+                    </div>
+                </div>';
+        }
+        echo '</div>';
+        echo '</div>';
+        ?>
     </div>
 
 

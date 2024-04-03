@@ -1,6 +1,7 @@
 <?php
 include('dbconnect.php');
 include('session.php');
+include('navbar.php');
 
 $tid = intval($_GET['id']);
 $tsql = "SELECT * FROM registered_member WHERE Member_ID = $tid";
@@ -62,10 +63,11 @@ $tcontacts = implode(", ", $temp);
     <div class="row mt-5 mb-5 d-flex justify-content-center">
         <div class="col-md-4">
             <div class="card" style="border-radius: .5rem;">
-                <div class="card-body pt-3 pb-3">
+                <div class="card-body pt-2 pb-2">
                     <form action="script.php?rqst=update" method="POST">
                         <center><img src="misc/logo.png"></center>
-                        <h4 class="card-title pt-3 pb-3 text-center text-dark">Member Details</h4>
+                        <h6 class="card-title mt-0 text-center text-secondary"><?php echo $_SESSION["club"]; ?></h6>
+                        <h4 class="card-title p-3 text-center text-dark">Member Details</h4>
                         <?php
                         if (isset($_GET['error'])) {
                             echo
@@ -80,15 +82,15 @@ $tcontacts = implode(", ", $temp);
                         }
                         ?>
                         <div class="form-group row mt-3">
-                            <label for="inputId" class="col-sm-3 col-form-label">Member ID</label>
+                            <label class="col-sm-3 col-form-label" for="inputId">Member ID</label>
                             <div class="col-sm-9">
-                                <input type="text" name="id" class="form-control" id="inputID" placeholder="<?php echo $trow["Member_ID"]; ?>">
+                                <input type="text" class="form-control" id="inputID" name="id" placeholder="<?php echo $trow["Member_ID"]; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputName" class="col-sm-3 col-form-label">Full Name</label>
+                            <label class="col-sm-3 col-form-label" for="inputName">Full Name</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" class="form-control" id="inputName" placeholder="<?php echo $trow["Name"]; ?>">
+                                <input type="text" class="form-control" id="inputName" name="name" placeholder="<?php echo $trow["Name"]; ?>" required>
                             </div>
                         </div>
                         <fieldset class="form-group">
@@ -96,7 +98,7 @@ $tcontacts = implode(", ", $temp);
                                 <label class="col-form-label col-sm-3 pt-0">Gender</label>
                                 <div class="col-sm-3">
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="gender" id="gender1" value="Male">
+                                        <input type="radio" class="form-check-input" id="gender1" name="gender" value="Male" checked="<?php echo $trow["Gender"]; ?>" required>
                                         <label class="form-check-label" for="gender1">
                                             Male
                                         </label>
@@ -104,7 +106,7 @@ $tcontacts = implode(", ", $temp);
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="gender" id="gender2" value="female">
+                                        <input type="radio" class="form-check-input" id="gender2" name="gender" value="Female" checked="<?php echo $trow["Gender"]; ?>">
                                         <label class="form-check-label" for="gender2">
                                             Female
                                         </label>
@@ -113,16 +115,17 @@ $tcontacts = implode(", ", $temp);
                             </div>
                         </fieldset>
                         <div class="form-group row">
-                            <label for="inputDate" class="col-sm-3 col-form-label">Birth Date</label>
+                            <label class="col-sm-3 col-form-label" for="inputDate">Birth Date</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date" class="form-control" id="inputDate" placeholder="<?php echo $trow["Birth_Date"]; ?>">
+                                <input type="date" class="form-control" id="inputDate" name="date" value="<?php echo $trow["Birth_Date"]; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputDept" class="col-sm-3 col-form-label">Department</label>
+                            <label class="col-sm-3 col-form-label" for="inputDept">Department</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="dept" id="inputDept">
-                                    <option selected><?php echo $trow["Department"] ?></option>
+                                <select class="form-control" id="inputDept" name="dept" required>
+                                    <option value="" selected>Select Department</option>
+                                    <option><?php echo $trow["Department"] ?></option>
                                     <?php
                                     $sql = "SELECT Name FROM department";
                                     $rows = mysqli_query($conn, $sql);
@@ -134,38 +137,41 @@ $tcontacts = implode(", ", $temp);
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputAdmit" class="col-sm-3 col-form-label">Admission</label>
+                            <label class="col-sm-3 col-form-label" for="inputAdmit">Admission</label>
                             <div class="col-sm-9">
-                                <input type="text" name="admit" class="form-control" id="inputAdmit" placeholder="<?php echo $trow["Admitted"]; ?>">
+                                <input type="text" class="form-control" id="inputAdmit" name="admit" placeholder="<?php echo $trow["Admitted"]; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputCredits" class="col-sm-3 col-form-label">Credits</label>
+                            <label class="col-sm-3 col-form-label" for="inputCredits">Credits</label>
                             <div class="col-sm-9">
-                                <input type="text" name="credit" class="form-control" id="inputCredits" placeholder="<?php echo $trow["Credits"]; ?>">
+                                <input type="number" class="form-control" id="inputCredits" name="credit" placeholder="<?php echo $trow["Credits"]; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputContact" class="col-sm-3 col-form-label">Contacts</label>
+                            <label class="col-sm-3 col-form-label" for="inputContact">Contacts</label>
                             <div class="col-sm-9">
-                                <input type="text" name="contacts" class="form-control" id="inputContact" placeholder="<?php echo $tcontacts; ?>">
+                                <input type="text" class="form-control" id="inputContact" name="contacts" placeholder="<?php echo $tcontacts; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                            <label class="col-sm-3 col-form-label" for="inputEmail">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="<?php echo $trow["Email"]; ?>">
+                                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="<?php echo $trow["Email"]; ?>" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
-                            <div class="col-sm-9 pb-2">
-                                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="<?php echo $trow["Password"]; ?>">
+                            <label class="col-sm-3 col-form-label" for="inputPassword">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="<?php echo $trow["Password"]; ?>" required>
                             </div>
                         </div>
-                        <form>
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </form>
+                        <div class="form-group row">
+                            <div class="col-sm-10 mt-2">
+                                <button class="btn btn-primary">Update</button>
+                                <button class="btn btn-danger ml-2" formaction="profile.php" formnovalidate>Cancel</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

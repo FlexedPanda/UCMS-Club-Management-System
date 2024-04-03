@@ -48,15 +48,15 @@ include('navbar.php');
 
 <body>
   <div class="row mt-5 mb-5 d-flex justify-content-center">
-    <div class="col-md-4">
-      <div class="card" style="border-radius: .5rem;">
-        <div class="card-body pt-2 pb-2">
+    <div class="col-md-4 mt-3 mb-3">
+      <div class="card pt-2" style="border-radius: .5rem;">
+        <div class="card-body pt-4 pb-1">
           <form action="register.php" method="POST">
             <center><img src="misc/logo.png"></center>
             <?php
             if (isset($_GET['error'])) {
               echo
-              '<div class="alert alert-danger text-center ml-5 mr-5 alert-dismissible" role="alert">'
+              '<div class="alert alert-danger text-center mt-3 ml-5 mr-5 alert-dismissible" role="alert">'
                 . $_GET["error"] .
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -66,16 +66,17 @@ include('navbar.php');
               session_destroy();
             }
             ?>
-            <div class="form-group row mt-3">
-              <label for="inputId" class="col-sm-3 col-form-label">Member ID</label>
+
+            <div class="form-group row mt-3 pt-3">
+              <label class="col-sm-3 col-form-label" for="inputId">Member ID</label>
               <div class="col-sm-9">
-                <input type="text" name="id" class="form-control" id="inputID" placeholder="Student ID" required>
+                <input type="text" class="form-control" id="inputID" name="id" placeholder="Student ID" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputName" class="col-sm-3 col-form-label">Full Name</label>
+              <label class="col-sm-3 col-form-label" for="inputName">Full Name</label>
               <div class="col-sm-9">
-                <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" required>
+                <input type="text" class="form-control" id="inputName" name="name" placeholder="Name" required>
               </div>
             </div>
             <fieldset class="form-group">
@@ -83,7 +84,7 @@ include('navbar.php');
                 <label class="col-form-label col-sm-3 pt-0">Gender</label>
                 <div class="col-sm-3">
                   <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" id="gender1" value="Male">
+                    <input type="radio" class="form-check-input" id="gender1" name="gender" value="Male" required>
                     <label class="form-check-label" for="gender1">
                       Male
                     </label>
@@ -91,7 +92,7 @@ include('navbar.php');
                 </div>
                 <div class="col-sm-3">
                   <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" id="gender2" value="female">
+                    <input type="radio" class="form-check-input" id="gender2" name="gender" value="Female">
                     <label class="form-check-label" for="gender2">
                       Female
                     </label>
@@ -100,16 +101,16 @@ include('navbar.php');
               </div>
             </fieldset>
             <div class="form-group row">
-              <label for="inputDate" class="col-sm-3 col-form-label">Birth Date</label>
+              <label class="col-sm-3 col-form-label" for="inputDate">Birth Date</label>
               <div class="col-sm-9">
-                <input type="date" name="date" class="form-control" id="inputDate" placeholder="date" required>
+                <input type="date" class="form-control" id="inputDate" name="date" placeholder="date" required>
               </div>
             </div>
             <div class="form-group row">
               <label for="inputClub" class="col-sm-3 col-form-label">Club</label>
               <div class="col-sm-9">
-                <select class="form-control" name="club" id="inputClub">
-                  <option selected>Choose Club</option>
+                <select class="form-control" id="inputClub" name="club" required>
+                  <option value="" selected>Choose Club</option>
                   <?php
                   $sql = "SELECT Name FROM club";
                   $rows = mysqli_query($conn, $sql);
@@ -123,8 +124,8 @@ include('navbar.php');
             <div class="form-group row">
               <label for="inputDept" class="col-sm-3 col-form-label">Department</label>
               <div class="col-sm-9">
-                <select class="form-control" name="dept" id="inputDept">
-                  <option selected>Select Department</option>
+                <select class="form-control" id="inputDept" name="dept" required>
+                  <option value="" selected>Select Department</option>
                   <?php
                   $sql = "SELECT Name FROM department";
                   $rows = mysqli_query($conn, $sql);
@@ -136,42 +137,42 @@ include('navbar.php');
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputAdmit" class="col-sm-3 col-form-label">Admission</label>
+              <label class="col-sm-3 col-form-label" for="inputAdmit">Admission</label>
               <div class="col-sm-9">
-                <input type="text" name="admit" class="form-control" id="inputAdmit" placeholder="Admitted Semester" required>
+                <input type="text" class="form-control" id="inputAdmit" name="admit" placeholder="Admitted Semester" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputCredits" class="col-sm-3 col-form-label">Credits</label>
+              <label class="col-sm-3 col-form-label" for="inputCredits">Credits</label>
               <div class="col-sm-9">
-                <input type="text" name="credit" class="form-control" id="inputCredits" placeholder="Credits Completed" required>
+                <input type="number" class="form-control" id="inputCredits" name="credit" placeholder="Credits Completed" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputContact" class="col-sm-3 col-form-label">Contacts</label>
+              <label class="col-sm-3 col-form-label" for="inputContact">Contacts</label>
               <div class="col-sm-9">
-                <input type="text" name="contacts" class="form-control" id="inputContact" placeholder="Separate by Comma" required>
+                <input type="text" class="form-control" id="inputContact" name="contacts" placeholder="Separate by Comma" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+              <label class="col-sm-3 col-form-label" for="inputEmail">Email</label>
               <div class="col-sm-9">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Your Email" required>
+                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter Your Email" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+              <label class="col-sm-3 col-form-label" for="inputPassword">Password</label>
               <div class="col-sm-9">
-                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter Password" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputConfirm" class="col-sm-3 col-form-label">Confirm</label>
+              <label class="col-sm-3 col-form-label" for="inputConfirm">Confirm</label>
               <div class="col-sm-9">
-                <input type="password" name="confirm" class="form-control" id="inputConfirm" placeholder="Confirm Password" required>
+                <input type="password" class="form-control" id="inputConfirm" name="confirm" placeholder="Confirm Password" required>
               </div>
             </div>
-            <div class="form-group text-center pt-2">
+            <div class="form-group text-center">
               <span>Existing Member? LogIn Instead |</span>
               <a href="login.php">Log In</a>
             </div>

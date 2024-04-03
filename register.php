@@ -81,7 +81,7 @@ if ($password != $check) {
 }
 
 //Insertion
-$sql1 = "INSERT INTO unregistered_member Values($id, '$name', '$gender', '$date', '$dept', '$admit', '$credit', '$email', $password)";
+$sql1 = "INSERT INTO unregistered_member Values($id, '$name', '$gender', '$date', '$dept', '$admit', $credit, '$email', $password)";
 $rows1 = mysqli_query($conn, $sql1);
 
 foreach($contacts as $contact){
@@ -89,13 +89,11 @@ foreach($contacts as $contact){
     $rows2 = mysqli_query($conn, $sql2);
 }
 
-$sql3 = "SELECT p.Panel_ID FROM moderate p, registered_member m WHERE p.Panel_ID = m.Member_ID AND m.Club = '$club'";
+$sql3 = "SELECT * FROM registered_member WHERE Designation <> 'Member' AND Club = '$club'";
 $rows3 = mysqli_query($conn, $sql3);
 while ($row = mysqli_fetch_assoc($rows3)) {
-    $pid = $row['Panel_ID'];
-    $rqst = date("Y-m-d");
-
-    $sql4 = "INSERT INTO request_membership Values($id, $pid, '$club', '$rqst')";
+    $pid = $row["Member_ID"];
+    $sql4 = "INSERT INTO request_membership Values($id, $pid, '$club')";
     $rows4 = mysqli_query($conn, $sql4);
 }
 

@@ -26,7 +26,7 @@ $rows1 = mysqli_query($conn, $sql1);
 $rows2 = mysqli_query($conn, $sql2);
 
 if (mysqli_num_rows($rows1) != 0 || mysqli_num_rows($rows2) != 0) {
-    header('Location: apply.php?error=Request Already Sent');
+    header('Location: sponsor.php?error=Request Already Sent');
     exit();
 }
 
@@ -34,7 +34,7 @@ if (mysqli_num_rows($rows1) != 0 || mysqli_num_rows($rows2) != 0) {
 $sql = "SELECT Name FROM verified_sponsor WHERE Name = '$name'";
 $rows = mysqli_query($conn, $sql);
 if (mysqli_num_rows($rows) != 0) {
-    header('Location: apply.php?error=Sponsor Already Exists');
+    header('Location: sponsor.php?error=Sponsor Already Exists');
     exit();
 }
 
@@ -44,7 +44,7 @@ foreach($tables as $table){
     $sql = "SELECT Email FROM $table WHERE Email = '$email'";
     $rows = mysqli_query($conn, $sql);
     if (mysqli_num_rows($rows) != 0) {
-        header('Location: apply.php?error=Email Already Exists');
+        header('Location: sponsor.php?error=Email Already Exists');
         exit();
     }
 }
@@ -56,7 +56,7 @@ foreach($tables as $table){
         $sql = "SELECT Contact FROM $table WHERE Contact = '$contact'";
         $rows = mysqli_query($conn, $sql);
         if (mysqli_num_rows($rows) != 0) {
-            header('Location: apply.php?error=Contact Already Exists');
+            header('Location: sponsor.php?error=Contact Already Exists');
             exit();
         }
     }
@@ -64,7 +64,7 @@ foreach($tables as $table){
 
 //Confirm Check
 if ($password != $check) {
-    header("Location: apply.php?error=Passwords Don't Match");
+    header("Location: sponsor.php?error=Passwords Don't Match");
     exit();
 }
 

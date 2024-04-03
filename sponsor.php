@@ -47,7 +47,7 @@ include('navbar.php');
 </head>
 
 <body>
-  <div class="row mt-3 d-flex justify-content-center">
+  <div class="row mt-4 d-flex justify-content-center">
     <div class="col-md-4">
       <div class="card" style="border-radius: .5rem;">
         <div class="card-body pt-2 pb-2">
@@ -56,7 +56,7 @@ include('navbar.php');
             <?php
             if (isset($_GET['error'])) {
               echo
-              '<div class="alert alert-danger text-center ml-5 mr-5 alert-dismissible" role="alert">'
+              '<div class="alert mt-3 alert-danger text-center ml-5 mr-5 alert-dismissible" role="alert">'
                 . $_GET["error"] .
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -66,7 +66,7 @@ include('navbar.php');
               session_destroy();
             }
             ?>
-            <div class="form-group row mt-3">
+            <div class="form-group row mt-3 pt-3">
               <label for="inputName" class="col-sm-3 col-form-label">Sponsor</label>
               <div class="col-sm-9">
                 <input type="text" name="name" class="form-control" id="inputName" placeholder="Sponsor Brand/Bank" required>
@@ -102,7 +102,7 @@ include('navbar.php');
                 <input type="password" name="confirm" class="form-control" id="inputConfirm" placeholder="Confirm Password" required>
               </div>
             </div>
-            <div class="form-group text-center pt-2">
+            <div class="form-group text-center">
               <span>Already Verified? LogIn Instead |</span>
               <a href="login.php">Log In</a>
             </div>

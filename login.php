@@ -48,15 +48,15 @@ include('navbar.php');
 
 <body>
     <div class="row mt-5 pl-5 pr-5 d-flex justify-content-center">
-        <div class="col-md-4 mt-5 pl-5 pr-5">
-            <div class="card" style="border-radius: .5rem;">
-                <div class="card-body pt-2 pb-2">
+        <div class="col-md-4 mt-3 pl-5 pr-5">
+            <div class="card pt-2" style="border-radius: .5rem;">
+                <div class="card-body pt-4 pb-1">
                     <form action="signin.php" method="POST">
                         <center><img src="misc/logo.png"></center>
                         <?php
                         if (isset($_GET['error'])) {
                             echo
-                            '<div class="alert alert-danger alert-dismissible text-center" role="alert">
+                            '<div class="alert mt-3 alert-danger alert-dismissible text-center" role="alert">
                                 ' . $_GET['error'] . '
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -67,7 +67,7 @@ include('navbar.php');
                         }
                         if (isset($_GET['mssg'])) {
                             echo
-                            '<div class="alert alert-success alert-dismissible text-center" role="alert">
+                            '<div class="alert mt-3 alert-success alert-dismissible text-center" role="alert">
                                 ' . $_GET['mssg'] . '
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -77,19 +77,19 @@ include('navbar.php');
                             session_destroy();
                         }
                         ?>
-                        <div class="form-group mt-2">
+                        <div class="form-group mt-3">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                            <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
                         </div>
-                        <div class="form-group mt-1">
+                        <div class="form-group mt-3">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
                         </div>
-                        <div class="form-group text-center pt-2">
+                        <div class="form-group text-center mt-3">
                             <span>New Here? Create Account |</span>
                             <a href="signup.php"> Sign Up</a>
                         </div>
-                        <button type="submit" name="submit" value="submit" class="btn btn-primary">Log In</button>
+                        <button type="submit" class="btn btn-primary mt-2">Log In</button>
                     </form>
                 </div>
             </div>

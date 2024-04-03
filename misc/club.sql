@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2024 at 03:52 AM
+-- Generation Time: Apr 03, 2024 at 08:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -164,16 +164,17 @@ CREATE TABLE `completed_event` (
 
 CREATE TABLE `contact` (
   `Sponsor` varchar(255) NOT NULL,
-  `Panel_ID` int(11) NOT NULL
+  `Panel_ID` int(11) NOT NULL,
+  `Event_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`Sponsor`, `Panel_ID`) VALUES
-('Standard Bank Ltd.', 1001),
-('Standard Bank Ltd.', 1006);
+INSERT INTO `contact` (`Sponsor`, `Panel_ID`, `Event_ID`) VALUES
+('Standard Bank Ltd.', 1001, 5003),
+('Standard Bank Ltd.', 1006, 5003);
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,7 @@ INSERT INTO `department` (`Name`, `Head`, `Designation`, `Email`, `Password`, `E
 ('ESS', 'Wasiqur Rahman Khan', 'Chairperson', 'ess@gmail.com', '1234', '2002-05-15'),
 ('LAW', 'K. Shamsuddin Mahmood', 'Chairperson', 'law@gmail.com', '1234', '2002-09-19'),
 ('MNS', 'A F M Yusuf Haider', 'Chairperson', 'mns@gmail.com', '1234', '2002-03-13'),
-('PHR', 'Hasina Yasmin', 'Chairperson', 'phrm@gmail.com', '1234', '2002-07-17');
+('PHR', 'Hasina Yasmin', 'Chairperson', 'phr@gmail.com', '1234', '2002-07-17');
 
 -- --------------------------------------------------------
 
@@ -293,7 +294,13 @@ INSERT INTO `member_contact` (`Member_ID`, `Contact`) VALUES
 (1038, '10382'),
 (1039, '10391'),
 (1039, '10392'),
-(1040, '10401');
+(1040, '10401'),
+(1051, '10511'),
+(1051, '10512'),
+(1052, '10521'),
+(1052, '10522'),
+(1054, '10541'),
+(1054, '10542');
 
 -- --------------------------------------------------------
 
@@ -320,7 +327,13 @@ INSERT INTO `moderate` (`Member_ID`, `Panel_ID`) VALUES
 (1039, 1004),
 (1039, 1038),
 (1040, 1005),
-(1040, 1010);
+(1040, 1010),
+(1051, 1001),
+(1051, 1006),
+(1052, 1001),
+(1052, 1006),
+(1054, 1005),
+(1054, 1010);
 
 -- --------------------------------------------------------
 
@@ -436,9 +449,12 @@ INSERT INTO `registered_member` (`Member_ID`, `Name`, `Gender`, `Birth_Date`, `D
 (1010, 'Towfiq Mahmud', 'Male', '2000-08-22', 'ARCH', 'Spring 2021', 96, 'ROBU', '2024-03-02', 'Vice President', 'towfiq.mahmud@gmail.com', '1234'),
 (1036, 'Nafiz Ahmed', 'Male', '2000-03-23', 'CSE', 'Spring 2021', 96, 'BUCC', '2024-03-07', 'Member', 'nafiz.ahmed@gmail.com', '1234'),
 (1037, 'Nafis Siddik', 'Male', '2001-02-25', 'EEE', 'Summer 2021', 84, 'BUEDF', '2024-03-08', 'Member', 'nafis.siddik@gmail.com', '1234'),
-(1038, 'Humaira Rashmin', 'Female', '2000-07-08', 'ENH', 'Fall 2021', 72, 'ROBU', '2024-03-09', 'Member', 'humaira.rashmin@gmail.com', '1234'),
+(1038, 'Humaira Amin', 'female', '2000-06-15', 'ENH', 'Summer 2021', 84, 'ROBU', '2024-03-09', 'Member', 'humaira.amin@gmail.com', '1234'),
 (1039, 'Maisha Fairooz', 'Female', '2002-09-17', 'LAW', 'Spring 2022', 60, 'BIZ BEE', '2024-03-10', 'Member', 'maisha.fairooz@gmail.com', '1234'),
-(1040, 'Nihal Kabir', 'Male', '2001-06-06', 'CSE', 'Spring 2022', 48, 'ROBU', '2024-03-11', 'Member', 'nihal.kabir@gmail.com', '1234');
+(1040, 'Nihal Kabir', 'Male', '2001-06-06', 'CSE', 'Spring 2022', 48, 'ROBU', '2024-03-11', 'Member', 'nihal.kabir@gmail.com', '1234'),
+(1051, 'Nahida Akhter', 'Female', '2000-10-19', 'ENH', 'Spring 2021', 96, 'BUCC', '2024-04-02', 'Member', 'nahida.akhter@gmail.com', '1234'),
+(1052, 'Rakib Hossain', 'Male', '2000-05-17', 'BBA', 'Summer 2021', 84, 'BUCC', '2024-04-03', 'Member', 'rakib.hossain@gmail.com', '1234'),
+(1054, 'Adnan Nur', 'Male', '2024-04-03', 'BBA', 'Spring 2023', 24, 'ROBU', '2024-04-01', 'Member', 'adnan.nur@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -450,10 +466,19 @@ CREATE TABLE `request_event` (
   `Event_ID` int(11) NOT NULL,
   `Member_ID` int(11) NOT NULL,
   `OCA_ID` int(11) NOT NULL,
-  `Proposed_Club` varchar(255) DEFAULT NULL,
-  `Capacity` int(11) DEFAULT NULL,
-  `Projected_Cost` int(11) DEFAULT NULL
+  `Proposed_Club` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `request_event`
+--
+
+INSERT INTO `request_event` (`Event_ID`, `Member_ID`, `OCA_ID`, `Proposed_Club`) VALUES
+(4001, 1001, 3001, 'BUCC'),
+(4001, 1001, 3002, 'BUCC'),
+(4001, 1001, 3003, 'BUCC'),
+(4001, 1001, 3004, 'BUCC'),
+(4001, 1001, 3005, 'BUCC');
 
 -- --------------------------------------------------------
 
@@ -464,21 +489,8 @@ CREATE TABLE `request_event` (
 CREATE TABLE `request_membership` (
   `Member_ID` int(11) NOT NULL,
   `Panel_ID` int(11) NOT NULL,
-  `Club` varchar(255) NOT NULL,
-  `Request_Date` date DEFAULT NULL
+  `Club` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `request_membership`
---
-
-INSERT INTO `request_membership` (`Member_ID`, `Panel_ID`, `Club`, `Request_Date`) VALUES
-(1051, 1005, 'ROBU', '2024-04-15'),
-(1051, 1010, 'ROBU', '2024-04-15'),
-(1052, 1001, 'BUCC', '2024-03-28'),
-(1052, 1006, 'BUCC', '2024-03-28'),
-(1054, 1005, 'ROBU', '2024-04-16'),
-(1054, 1010, 'ROBU', '2024-04-16');
 
 -- --------------------------------------------------------
 
@@ -526,18 +538,6 @@ CREATE TABLE `tmember_contact` (
   `Contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tmember_contact`
---
-
-INSERT INTO `tmember_contact` (`Member_ID`, `Contact`) VALUES
-(1051, '10511'),
-(1051, '10512'),
-(1052, '10521'),
-(1052, '10522'),
-(1054, '10541'),
-(1054, '10542');
-
 -- --------------------------------------------------------
 
 --
@@ -572,6 +572,13 @@ CREATE TABLE `unapproved_event` (
   `Entry_Fee` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `unapproved_event`
+--
+
+INSERT INTO `unapproved_event` (`Event_ID`, `Name`, `Date`, `Venue`, `Entry_Fee`) VALUES
+(4001, 'DevOps Session', '2024-04-24', 'Auditorium, Ground Floor', 10);
+
 -- --------------------------------------------------------
 
 --
@@ -582,22 +589,13 @@ CREATE TABLE `unregistered_member` (
   `Member_ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Gender` varchar(255) DEFAULT NULL,
-  `Birth_date` date DEFAULT NULL,
+  `Birth_Date` date DEFAULT NULL,
   `Department` varchar(255) DEFAULT NULL,
   `Admitted` varchar(255) DEFAULT NULL,
   `Credits` int(11) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `unregistered_member`
---
-
-INSERT INTO `unregistered_member` (`Member_ID`, `Name`, `Gender`, `Birth_date`, `Department`, `Admitted`, `Credits`, `Email`, `Password`) VALUES
-(1051, 'Nahid Hossain', 'Male', '2001-02-27', 'ENH', 'Spring 2020', 112, 'nahid.hossain@gmail.com', '1234'),
-(1052, 'Rakib Hossain', 'Male', '2024-03-20', 'LAW', 'Spring 2022', 84, 'rakib.hossain@gmail.com', '1234'),
-(1054, 'Adnan Nur', 'Male', '2000-03-15', 'BBA', 'Spring 2023', 24, 'adnan.nur@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -691,8 +689,9 @@ ALTER TABLE `completed_event`
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`Sponsor`,`Panel_ID`),
-  ADD KEY `contact_ibfk_1` (`Panel_ID`);
+  ADD PRIMARY KEY (`Sponsor`,`Panel_ID`,`Event_ID`),
+  ADD KEY `contact_ibfk_1` (`Panel_ID`),
+  ADD KEY `contact_ibfk_3` (`Event_ID`);
 
 --
 -- Indexes for table `department`
@@ -844,6 +843,28 @@ ALTER TABLE `verified_sponsor`
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `approved_event`
+--
+ALTER TABLE `approved_event`
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5007;
+
+--
+-- AUTO_INCREMENT for table `completed_event`
+--
+ALTER TABLE `completed_event`
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6001;
+
+--
+-- AUTO_INCREMENT for table `unapproved_event`
+--
+ALTER TABLE `unapproved_event`
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4002;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -879,7 +900,8 @@ ALTER TABLE `completed_event`
 --
 ALTER TABLE `contact`
   ADD CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`Panel_ID`) REFERENCES `registered_member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`Sponsor`) REFERENCES `unverified_sponsor` (`Name`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`Sponsor`) REFERENCES `unverified_sponsor` (`Name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contact_ibfk_3` FOREIGN KEY (`Event_ID`) REFERENCES `approved_event` (`Event_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `give_announcement`
