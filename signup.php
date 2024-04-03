@@ -112,7 +112,7 @@ include('navbar.php');
                 <select class="form-control" id="inputClub" name="club" required>
                   <option value="" selected>Choose Club</option>
                   <?php
-                  $sql = "SELECT Name FROM club";
+                  $sql = "SELECT * FROM club";
                   $rows = mysqli_query($conn, $sql);
                   while ($row = mysqli_fetch_assoc($rows)) {
                     echo "<option value=" . $row['Name'] . ">" . $row['Name'] . "</option>";
@@ -127,7 +127,7 @@ include('navbar.php');
                 <select class="form-control" id="inputDept" name="dept" required>
                   <option value="" selected>Select Department</option>
                   <?php
-                  $sql = "SELECT Name FROM department";
+                  $sql = "SELECT * FROM department";
                   $rows = mysqli_query($conn, $sql);
                   while ($row = mysqli_fetch_assoc($rows)) {
                     echo "<option value=" . $row['Name'] . ">" . $row['Name'] . "</option>";

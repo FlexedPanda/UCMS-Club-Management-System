@@ -73,9 +73,24 @@ include('navbar.php');
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputAgent" class="col-sm-3 col-form-label">Agent</label>
+              <label for="inputAgent" class="col-sm-3 col-form-label">Agent Name</label>
               <div class="col-sm-9">
                 <input type="text" name="agent" class="form-control" id="inputAgent" placeholder="Sponsor Agent" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEvent" class="col-sm-3 col-form-label">Sponsor For</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="inputEvent" name="event" required>
+                  <option value="" selected>Select Event</option>
+                  <?php
+                  $sql = "SELECT * FROM approved_event";
+                  $rows = mysqli_query($conn, $sql);
+                  while ($row = mysqli_fetch_assoc($rows)) {
+                    echo "<option value=" . $row['Event_ID'] . ">" . $row['Name'] . "</option>";
+                  }
+                  ?>
+                </select>
               </div>
             </div>
             <div class="form-group row">

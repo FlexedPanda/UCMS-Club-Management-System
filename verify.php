@@ -5,6 +5,7 @@ include('dbconnect.php');
 //Session Store
 $_SESSION["name"] = $_POST["name"];
 $_SESSION["agent"] = $_POST["agent"];
+$_SESSION["event"] = $_POST["event"];
 $_SESSION["contacts"] = explode(', ', $_POST["contacts"]);
 $_SESSION["email"] = $_POST["email"];
 $_SESSION["password"] = $_POST["password"];
@@ -77,12 +78,13 @@ foreach($contacts as $contact){
     $rows2 = mysqli_query($conn, $sql2);
 }
 
-$sql3 = "SELECT p.Panel_ID FROM moderate p, registered_member m WHERE p.Panel_ID = m.Member_ID";
+$sql3 = "SELECT * FROM approved_event e, registered_member p WHERE e.Club = p.Club AND p.Designation <> 'Member' AND e.Event_ID = ".$_SESSION["event"]."";
 $rows3 = mysqli_query($conn, $sql3);
 while ($row = mysqli_fetch_assoc($rows3)) {
-    $pid = $row['Panel_ID'];
+    $pid = $row['Member_ID'];
+    $eid = $row['Event_ID'];
 
-    $sql4 = "INSERT INTO contact Values('$name', $pid)";
+    $sql4 = "INSERT INTO contact Values('$name', $pid, $eid)";
     $rows4 = mysqli_query($conn, $sql4);
 }
 

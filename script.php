@@ -145,9 +145,11 @@ include('navbar.php');
                                 <p class="card-text m-2 pl-2"><b>Event Date :</b>  ' . $row["Date"] . '</p>
                                 <p class="card-text m-2 pl-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
                                 <p class="card-text m-2 pl-2"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
-                                <form class="form-inline pl-2" method="GET">
-                                    <button class="btn btn-outline-light mt-2" name="participate" value="' . $row["Event_ID"] . '">Participate</button>
-                                    <button class="btn btn-secondary mt-2 ml-3" name="leave" value="' . $row["Event_ID"] . '" disabled>Leave</button>
+                                <form class="form-inline m-2 pl-2" method="GET">
+                                    <laber for="inputFund"><b>Fund Event : </b></label>
+                                    <input type="number" class="mt-2 py-1" id="inputFund" name="amount" placeholder="Enter Amount"><br>
+                                    <button class="btn btn-outline-light mt-2" name="provide_fund" value="' . $row["Event_ID"] . '">Fund</button>
+                                    <button class="btn btn-secondary mt-2 ml-2" name="change_fund" value="' . $row["Event_ID"] . '" disabled>Cancel</button>
                                     <input type="hidden" name="rqst" value="">
                                 </form>
                             </div>
@@ -165,9 +167,11 @@ include('navbar.php');
                                 <p class="card-text m-2 pl-2"><b>Venue :</b>  ' . $row["Venue"] . '</p>
                                 <p class="card-text m-2 pl-2"><b>Entry Fee :</b>  ' . $row["Entry_Fee"] . ' taka</p>
                                 <form class="form-inline pl-2" method="GET">
-                                    <button class="btn btn-secondary mt-2" name="participate" value="' . $row["Event_ID"] . '" disabled>Participated</button>
-                                    <button class="btn btn-outline-light mt-2 ml-3" name="leave" value="' . $row["Event_ID"] . '">Leave</button>
-                                    <input type="hidden" name="rqst" value="">
+                                <laber for="inputFund"><b>Fund Event : </b></label>
+                                <input type="number" class="mt-2 py-1" id="inputFund" name="amount" placeholder="'.$row3["Amount"].' Fund Provided" disabled><br>
+                                <button class="btn btn-outline-light mt-2" name="provide_fund" value="' . $row["Event_ID"] . '" disabled>Fund</button>
+                                <button class="btn btn-secondary mt-2 ml-2" name="change_fund" value="' . $row["Event_ID"] . '">Cancel</button>
+                                <input type="hidden" name="rqst" value="">
                                 </form>
                             </div>
                         </div>
@@ -837,8 +841,13 @@ include('navbar.php');
         echo '</table>';
         echo '</div>';
 
-        //Sponsor Contact
-    } else if ($_GET["rqst"] == "advisorlist") {
+        //OCA Provide Provide
+    } else if (isset($_GET["provide_fund"])) {
+        $eid = $_GET["provide_fund"];
+        $oca_id = $_SESSION["id"];
+        $amount = $_GET["amount"];
+
+        echo $eid, $oca_id, $amount;
     }
     ob_end_flush();
     ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 08:10 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 03, 2024 at 11:38 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `advisor` (
   `Designation` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `advisor`
@@ -55,7 +55,7 @@ INSERT INTO `advisor` (`Advisor_ID`, `Name`, `Designation`, `Email`, `Password`)
 CREATE TABLE `advisor_contact` (
   `Advisor_ID` int(11) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `advisor_contact`
@@ -92,7 +92,7 @@ CREATE TABLE `approved_event` (
   `Participants` int(11) DEFAULT NULL,
   `Fundings` int(11) DEFAULT NULL,
   `Earnings` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `approved_event`
@@ -122,7 +122,7 @@ CREATE TABLE `club` (
   `President_Email` varchar(255) DEFAULT NULL,
   `Established` date DEFAULT NULL,
   `Club_Reserve` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `club`
@@ -154,7 +154,7 @@ CREATE TABLE `completed_event` (
   `Participants` int(11) DEFAULT NULL,
   `Fundings` int(11) DEFAULT NULL,
   `Earnings` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -166,13 +166,15 @@ CREATE TABLE `contact` (
   `Sponsor` varchar(255) NOT NULL,
   `Panel_ID` int(11) NOT NULL,
   `Event_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`Sponsor`, `Panel_ID`, `Event_ID`) VALUES
+('AB Bank Ltd.', 1005, 5006),
+('AB Bank Ltd.', 1010, 5006),
 ('Standard Bank Ltd.', 1001, 5003),
 ('Standard Bank Ltd.', 1006, 5003);
 
@@ -189,7 +191,7 @@ CREATE TABLE `department` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Established` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `department`
@@ -216,7 +218,7 @@ CREATE TABLE `give_announcement` (
   `Department` varchar(255) NOT NULL,
   `Club` varchar(255) NOT NULL,
   `Message` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `give_announcement`
@@ -237,7 +239,7 @@ CREATE TABLE `give_fund` (
   `OCA_ID` int(11) NOT NULL,
   `Sponsor` varchar(255) NOT NULL,
   `Amount` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -248,7 +250,7 @@ CREATE TABLE `give_fund` (
 CREATE TABLE `manage` (
   `Member_ID` int(11) NOT NULL,
   `OCA_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -259,7 +261,7 @@ CREATE TABLE `manage` (
 CREATE TABLE `member_contact` (
   `Member_ID` int(11) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member_contact`
@@ -311,7 +313,7 @@ INSERT INTO `member_contact` (`Member_ID`, `Contact`) VALUES
 CREATE TABLE `moderate` (
   `Member_ID` int(11) NOT NULL,
   `Panel_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `moderate`
@@ -348,7 +350,7 @@ CREATE TABLE `oca` (
   `Fund_Balance` int(11) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `oca`
@@ -370,7 +372,7 @@ INSERT INTO `oca` (`OCA_ID`, `Name`, `Designation`, `Fund_Balance`, `Email`, `Pa
 CREATE TABLE `oca_contact` (
   `OCA_ID` int(11) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `oca_contact`
@@ -397,7 +399,7 @@ INSERT INTO `oca_contact` (`OCA_ID`, `Contact`) VALUES
 CREATE TABLE `participate` (
   `Member_ID` int(11) NOT NULL,
   `Event_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -409,7 +411,7 @@ CREATE TABLE `provide_fund` (
   `Event_ID` int(11) NOT NULL,
   `OCA_ID` int(11) NOT NULL,
   `Amount` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -430,7 +432,7 @@ CREATE TABLE `registered_member` (
   `Designation` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `registered_member`
@@ -467,7 +469,7 @@ CREATE TABLE `request_event` (
   `Member_ID` int(11) NOT NULL,
   `OCA_ID` int(11) NOT NULL,
   `Proposed_Club` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `request_event`
@@ -490,7 +492,7 @@ CREATE TABLE `request_membership` (
   `Member_ID` int(11) NOT NULL,
   `Panel_ID` int(11) NOT NULL,
   `Club` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -502,7 +504,7 @@ CREATE TABLE `request_sponsorship` (
   `Sponsor` varchar(255) NOT NULL,
   `Member_ID` int(11) NOT NULL,
   `OCA_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -513,7 +515,7 @@ CREATE TABLE `request_sponsorship` (
 CREATE TABLE `sponsor_contact` (
   `Sponsor` varchar(255) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sponsor_contact`
@@ -536,7 +538,7 @@ INSERT INTO `sponsor_contact` (`Sponsor`, `Contact`) VALUES
 CREATE TABLE `tmember_contact` (
   `Member_ID` int(11) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -547,13 +549,15 @@ CREATE TABLE `tmember_contact` (
 CREATE TABLE `tsponsor_contact` (
   `Sponsor` varchar(255) NOT NULL,
   `Contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tsponsor_contact`
 --
 
 INSERT INTO `tsponsor_contact` (`Sponsor`, `Contact`) VALUES
+('AB Bank Ltd.', '40201'),
+('AB Bank Ltd.', '40202'),
 ('Standard Bank Ltd.', '40101'),
 ('Standard Bank Ltd.', '40102'),
 ('Standard Bank Ltd.', '40103');
@@ -570,7 +574,7 @@ CREATE TABLE `unapproved_event` (
   `Date` date DEFAULT NULL,
   `Venue` varchar(255) DEFAULT NULL,
   `Entry_Fee` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unapproved_event`
@@ -595,7 +599,7 @@ CREATE TABLE `unregistered_member` (
   `Credits` int(11) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -608,13 +612,14 @@ CREATE TABLE `unverified_sponsor` (
   `Agent` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unverified_sponsor`
 --
 
 INSERT INTO `unverified_sponsor` (`Name`, `Agent`, `Email`, `Password`) VALUES
+('AB Bank Ltd.', 'Anindita Labonno', 'abbank@gmail.com', '1234'),
 ('Standard Bank Ltd.', 'Anupam Roy', 'standardbank@gmail.com', '1234');
 
 -- --------------------------------------------------------
@@ -631,7 +636,7 @@ CREATE TABLE `verified_sponsor` (
   `Fund_Provided` int(11) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `verified_sponsor`
