@@ -16,7 +16,7 @@ if (isset($_POST["join"])) {
         $sql1 = "INSERT INTO participate VALUES ($member_id, $event_id)";
         $rows1 = mysqli_query($conn, $sql1);
 
-        $sql2 = "UPDATE participate p, approved_event a, club c SET a.Participants = a.Participants + 1, a.Earnings = a.Earnings + a.Entry_Fee, c.Club_Reserve = c.Club_Reserve + a.Entry_Fee WHERE p.Event_ID = a.Event_ID AND a.Club = c.Name AND p.Member_ID = $member_id";
+        $sql2 = "UPDATE participate p, approved_event a, club c SET a.Participants = a.Participants + 1, a.Earnings = a.Earnings + a.Entry_Fee, c.Club_Reserve = c.Club_Reserve + a.Entry_Fee WHERE p.Event_ID = a.Event_ID AND a.Club = c.Name AND p.Member_ID = $member_id AND a.Event_ID = $event_id";
         $rows2 = mysqli_query($conn, $sql2);
 
         if(isset($_POST["clubevent"])) {
@@ -46,7 +46,7 @@ if (isset($_POST["join"])) {
     $participants = $row["Participants"];
 
     if ($participants > 0) {
-        $sql1 = "UPDATE participate p, approved_event a, club c SET a.Participants = a.Participants - 1, a.Earnings = a.Earnings - a.Entry_Fee, c.Club_Reserve = c.Club_Reserve - a.Entry_Fee WHERE p.Event_ID = a.Event_ID AND a.Club = c.Name AND p.Member_ID = $member_id";
+        $sql1 = "UPDATE participate p, approved_event a, club c SET a.Participants = a.Participants - 1, a.Earnings = a.Earnings - a.Entry_Fee, c.Club_Reserve = c.Club_Reserve - a.Entry_Fee WHERE p.Event_ID = a.Event_ID AND a.Club = c.Name AND p.Member_ID = $member_id AND a.Event_ID = $event_id";
         $rows1 = mysqli_query($conn, $sql1);
 
         $sql2 = "DELETE FROM participate WHERE Member_ID = $member_id AND Event_ID = $event_id";

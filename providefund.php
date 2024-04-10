@@ -7,7 +7,7 @@ if (isset($_POST["fund"])){
     $amount = $_POST["amount"];
     $oid = $_SESSION["id"];
     
-    $sql1 = "SELECT * FROM approved_event e, club c WHERE e.Club = c.Name AND Event_ID = $eid";
+    $sql1 = "SELECT * FROM approved_event e, club c WHERE e.Club = c.Name AND e.Event_ID = $eid";
     $rows1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($rows1);
 
@@ -28,7 +28,7 @@ if (isset($_POST["fund"])){
     } else {
         if ($amount > $fund) {
             $extra = $amount - $fund;
-            $sql2 = "UPDATE approved_event e, club c SET e.Fundings = e.Fundings + $fund, c.Club_Reserve = c.Club_Reserve + $extra WHERE e.Club = c.Name AND Event_ID = $eid";
+            $sql2 = "UPDATE approved_event e, club c SET e.Fundings = e.Fundings + $fund, c.Club_Reserve = c.Club_Reserve + $extra WHERE e.Club = c.Name AND e.Event_ID = $eid";
             $rows2 = mysqli_query($conn, $sql2);
         } else {
             $sql3 = "UPDATE approved_event SET Fundings = Fundings + $amount WHERE Event_ID = $eid";
@@ -59,14 +59,14 @@ if (isset($_POST["fund"])){
     $row7 = mysqli_fetch_assoc($rows7);
     $amount = $row7["Amount"];
 
-    $sql8 = "SELECT * FROM approved_event e, club c WHERE e.Club = c.Name AND Event_ID = $eid";
+    $sql8 = "SELECT * FROM approved_event e, club c WHERE e.Club = c.Name AND e.Event_ID = $eid";
     $rows8 = mysqli_query($conn, $sql8);
     $row8 = mysqli_fetch_assoc($rows8);
     $fundings = $row8["Fundings"];
 
     if ($amount > $fundings){
         $extra = $amount - $fundings;
-        $sql9 = "UPDATE approved_event e, club c SET e.Fundings = e.Fundings - $fundings, c.Club_Reserve = c.Club_Reserve - $extra WHERE e.Club = c.Name AND Event_ID = $eid";
+        $sql9 = "UPDATE approved_event e, club c SET e.Fundings = e.Fundings - $fundings, c.Club_Reserve = c.Club_Reserve - $extra WHERE e.Club = c.Name AND e.Event_ID = $eid";
         $rows9 = mysqli_query($conn, $sql9);
     } else {
         $sql10 = "UPDATE approved_event SET Fundings = Fundings - $amount WHERE Event_ID = $eid";
